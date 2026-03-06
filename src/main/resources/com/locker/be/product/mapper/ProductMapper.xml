@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.product.mapper.ProductMapper">
+
+    <select id="findAll" parameterType="com.locker.be.product.dto.ProductQueryDto$ProductReq" resultType="com.locker.be.product.dto.ProductQueryDto$ProductRes">
+        EXECUTE SP_PRODUCT_SELECT
+            #{DS_TITLE}
+            ,#{DS_MAIN_CATEGORY}
+            ,#{DS_SUB_CATEGORY}
+            ,#{MIN_PRICE}
+            ,#{MAX_PRICE}
+            ,#{YN_SOLDED}
+            ,#{YN_LOCKER}
+            ,#{DS_STATE}
+            ,#{DS_CITY}
+            ,#{PAGE}
+    </select>
+</mapper>

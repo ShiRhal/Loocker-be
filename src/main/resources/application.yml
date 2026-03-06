@@ -9,9 +9,9 @@ spring:
   # ===== MSSQL Datasource =====
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1433;databaseName=locker;encrypt=false;trustServerCertificate=true
-    username:
-    password:
+    url: jdbc:sqlserver://10.207.55.169:1433;databaseName=locker;encrypt=false;trustServerCertificate=true
+    username: locker
+    password: "1355"
     hikari:
       maximum-pool-size: 10
       minimum-idle: 2
@@ -40,3 +40,6 @@ springdoc:
     operationsSorter: method
     tagsSorter: alpha
     display-request-duration: true
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID}

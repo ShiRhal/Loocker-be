@@ -1,0 +1,27 @@
+package com.locker.be.product.api;
+
+import com.locker.be.product.dto.ProductTradeTypeDto;
+import com.locker.be.product.service.ProductTradeTypeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("product/trade/type")
+@Tag(name = "거래방식 API", description = "거래방식을 위한 API 입니다.")
+public class ProductTradeTypeApi {
+
+    private ProductTradeTypeService productTradeTypeService;
+
+    @PutMapping("/create")
+    @Operation(summary = "신규 데이터를 입력합니다.")
+    public void findAll(ProductTradeTypeDto.ProductTradeTypeReq dto) {
+        productTradeTypeService.create(dto);
+    }
+}

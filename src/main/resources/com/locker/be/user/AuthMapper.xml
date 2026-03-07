@@ -12,6 +12,11 @@
         <result property="resultMessage" column="result_message"/>
     </resultMap>
 
+    <resultMap id="MeResMap" type="com.locker.be.user.dto.AuthDto$MeRes">
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+    </resultMap>
+
     <select id="loginOrRegisterGoogle"
             parameterType="com.locker.be.user.dto.AuthDto$GoogleUserUpsertParam"
             resultMap="UserInfoMap"
@@ -20,6 +25,14 @@
              #{providerType}
            , #{providerKey}
            , #{nickname}
+    </select>
+
+    <select id="selectMe"
+            parameterType="long"
+            resultMap="MeResMap"
+            statementType="CALLABLE">
+        EXEC dbo.SP_AUTH_ME_SELECT
+             #{userId}
     </select>
 
 </mapper>

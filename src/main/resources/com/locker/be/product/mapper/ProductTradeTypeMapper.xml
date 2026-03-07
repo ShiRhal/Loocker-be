@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.locker.be.product.mapper.ProductMapper">
+<mapper namespace="com.locker.be.product.mapper.ProductTradeTypeMapper">
 
     <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.product.dto.ProductDto$ProductDetailReq">
         EXECUTE SP_PRODUCT_DETAIL_INSERT

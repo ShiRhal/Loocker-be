@@ -20,6 +20,6 @@ public class AuthApi {
 
     @GetMapping("/me")
     public ResponseEntity<AuthDto.MeRes> me() {
-        return ResponseEntity.status(401).build();
+        return ResponseEntity.ok(authService.me());
     }
 }

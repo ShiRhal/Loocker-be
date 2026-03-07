@@ -21,6 +21,7 @@ public class AuthDto {
         private String nickname;
         private String resultCode;
         private String resultMessage;
+        private String accessToken;
     }
 
     @Getter
@@ -28,7 +29,6 @@ public class AuthDto {
     public static class MeRes {
         private Long userId;
         private String nickname;
-        private String providerType;
     }
 
     @Getter

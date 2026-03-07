@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     url: jdbc:sqlserver://10.207.55.169:1433;databaseName=Locker;encrypt=true;trustServerCertificate=true
@@ -22,3 +24,6 @@ springdoc:
     operationsSorter: method
     tagsSorter: alpha
     display-request-duration: true
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID}

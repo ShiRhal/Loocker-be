@@ -5,7 +5,9 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
 import com.locker.be.user.dto.AuthDto;
+import com.locker.be.user.mapper.AuthMapper;
 import com.locker.be.user.util.NicknameGenerator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,10 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
+
+    private final AuthMapper authMapper;
 
     @Value("${google.client-id}")
     private String googleClientId;
@@ -26,16 +31,17 @@ public class AuthService {
         String providerKey = payload.getSubject();
         String nickname = NicknameGenerator.generateWithNumber();
 
-        System.out.println("=== GOOGLE LOGIN VERIFY SUCCESS ===");
-        System.out.println("providerType = " + providerType);
-        System.out.println("providerKey  = " + providerKey);
-        System.out.println("nickname     = " + nickname);
+        AuthDto.GoogleUserUpsertParam param = new AuthDto.GoogleUserUpsertParam();
+        param.setProviderType(providerType);
+        param.setProviderKey(providerKey);
+        param.setNickname(nickname);
+
+        AuthDto.UserInfo userInfo = authMapper.loginOrRegisterGoogle(param);
 
         return new AuthDto.GoogleLoginRes(
-                null,
-                nickname,
-                providerType,
-                providerKey
+                userInfo.getUserId(),
+                userInfo.getNickname(),
+                userInfo.getProviderType()
         );
     }
 

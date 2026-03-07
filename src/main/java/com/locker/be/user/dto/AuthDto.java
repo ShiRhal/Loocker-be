@@ -20,12 +20,29 @@ public class AuthDto {
         private Long userId;
         private String nickname;
         private String providerType;
-        private String providerKey;
     }
 
     @Getter
     @AllArgsConstructor
     public static class MeRes {
+        private Long userId;
+        private String nickname;
+        private String providerType;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class GoogleUserUpsertParam {
+        private String providerType;
+        private String providerKey;
+        private String nickname;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class UserInfo {
         private Long userId;
         private String nickname;
         private String providerType;

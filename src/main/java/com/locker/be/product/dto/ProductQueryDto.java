@@ -58,4 +58,39 @@ public class ProductQueryDto {
             this.PAGE = PAGE;
         }
     }
+
+    @Getter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class ProductDetailRes {
+        private Long PRODUCT_ID;
+        private String TITLE;
+        private String DESCRIPTION;
+        private Long BASE_PRICE;
+        private String STATUS_CODE;
+        private String ACCESSORY_STATUS;
+        private String STATE;
+        private String CITY;
+        private String MAIN_CATEGORY;
+        private String SUB_CATEGORY;
+        private String CREATED_AT;
+        private String NICKNAME;
+        private Long VIEW_COUNT;
+        private String IMAGE_URL;
+        private String TRADE_TYPE;
+        private Long WISH_COUNT;
+        private Long CHAT_COUNT;
+    }
+
+    @Getter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class ProductDetailReq {
+        private Long PRODUCT_ID;
+
+        @Builder
+        public ProductDetailReq (
+                Long PRODUCT_ID
+        ) {
+            this.PRODUCT_ID = PRODUCT_ID;
+        }
+    }
 }

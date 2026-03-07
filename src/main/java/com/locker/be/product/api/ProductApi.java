@@ -1,14 +1,13 @@
 package com.locker.be.product.api;
 
+import com.locker.be.product.dto.ProductDto;
 import com.locker.be.product.dto.ProductQueryDto;
 import com.locker.be.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -25,5 +24,17 @@ public class ProductApi {
     @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
     public Collection<ProductQueryDto.ProductRes> findAll(ProductQueryDto.ProductReq dto) {
         return productService.findAll(dto);
+    }
+
+    @GetMapping("/detail/select")
+    @Operation(summary = "검색조건에 따른 상품 상세내용에 대한 데이터를 반환합니다.")
+    public Collection<ProductQueryDto.ProductDetailRes> findOne(ProductQueryDto.ProductDetailReq dto) {
+        return productService.findOne(dto);
+    }
+
+    @PostMapping("/detail/create")
+    @Operation(summary = "신규 데이터를 입력합니다.")
+    public Long findAll(ProductDto.ProductDetailReq dto) {
+        return productService.create(dto);
     }
 }

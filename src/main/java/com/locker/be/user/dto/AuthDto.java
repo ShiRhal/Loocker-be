@@ -19,7 +19,8 @@ public class AuthDto {
     public static class GoogleLoginRes {
         private Long userId;
         private String nickname;
-        private String providerType;
+        private String resultCode;
+        private String resultMessage;
     }
 
     @Getter
@@ -45,6 +46,7 @@ public class AuthDto {
     public static class UserInfo {
         private Long userId;
         private String nickname;
-        private String providerType;
+        private String resultCode;
+        private String resultMessage;
     }
 }

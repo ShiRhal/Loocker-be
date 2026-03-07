@@ -41,7 +41,8 @@ public class AuthService {
         return new AuthDto.GoogleLoginRes(
                 userInfo.getUserId(),
                 userInfo.getNickname(),
-                userInfo.getProviderType()
+                userInfo.getResultCode(),
+                userInfo.getResultMessage()
         );
     }
 

@@ -8,14 +8,15 @@
     <resultMap id="UserInfoMap" type="com.locker.be.user.dto.AuthDto$UserInfo">
         <result property="userId" column="user_id"/>
         <result property="nickname" column="nickname"/>
-        <result property="providerType" column="provider_type"/>
+        <result property="resultCode" column="result_code"/>
+        <result property="resultMessage" column="result_message"/>
     </resultMap>
 
     <select id="loginOrRegisterGoogle"
             parameterType="com.locker.be.user.dto.AuthDto$GoogleUserUpsertParam"
             resultMap="UserInfoMap"
             statementType="CALLABLE">
-        EXEC dbo.SP_AUTH_GOOGLE_LOGIN
+        EXEC dbo.SP_USER_SELECT
              #{providerType}
            , #{providerKey}
            , #{nickname}

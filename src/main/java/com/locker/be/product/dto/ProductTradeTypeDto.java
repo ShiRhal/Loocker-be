@@ -1,12 +1,13 @@
 package com.locker.be.product.dto;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.locker.be.CustomUpperSnakeCaseStrategy;
+import lombok.*;
 
 public class ProductTradeTypeDto {
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductTradeTypeRes {
@@ -14,6 +15,8 @@ public class ProductTradeTypeDto {
         private String TRADE_TYPE;
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductTradeTypeReq {

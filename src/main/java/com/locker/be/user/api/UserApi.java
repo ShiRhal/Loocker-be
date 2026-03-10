@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "유저 API", description = "유저를 위한 API 입니다.")
 public class UserApi {
 
-    private UserService userService;
+    private final UserService userService;
 
     @PutMapping("/nickname/update")
     @Operation(summary = "닉네임을 수정 합니다.")

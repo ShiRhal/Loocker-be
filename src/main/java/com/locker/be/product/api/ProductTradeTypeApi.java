@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "거래방식 API", description = "거래방식을 위한 API 입니다.")
 public class ProductTradeTypeApi {
 
-    private ProductTradeTypeService productTradeTypeService;
+    private final ProductTradeTypeService productTradeTypeService;
 
     @PutMapping("/create")
     @Operation(summary = "신규 데이터를 입력합니다.")

@@ -1,9 +1,14 @@
 package com.locker.be.product.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.locker.be.CustomUpperSnakeCaseStrategy;
 import lombok.*;
+
+import java.util.Collection;
 
 public class ProductQueryDto {
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -19,6 +24,8 @@ public class ProductQueryDto {
         private Long CHAT_COUNT;
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductReq {
@@ -59,6 +66,8 @@ public class ProductQueryDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductDetailRes {
@@ -75,12 +84,14 @@ public class ProductQueryDto {
         private String CREATED_AT;
         private String NICKNAME;
         private Long VIEW_COUNT;
-        private String IMAGE_URL;
         private String TRADE_TYPE;
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
+        private Collection<ProductImageQueryDto.ProductImageRes> IMAGE;
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductDetailReq {

@@ -1,12 +1,14 @@
 package com.locker.be.product.api;
 
 import com.locker.be.product.dto.ProductDto;
+import com.locker.be.product.dto.ProductImageDto;
 import com.locker.be.product.dto.ProductQueryDto;
 import com.locker.be.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -34,7 +36,21 @@ public class ProductApi {
 
     @PostMapping("/detail/create")
     @Operation(summary = "신규 데이터를 입력합니다.")
-    public Long findAll(@RequestBody final ProductDto.ProductDetailReq dto) {
+    public Long findAll(@RequestBody final ProductDto.ProductDetailCreateReq dto) {
         return productService.create(dto);
+    }
+
+    @PutMapping("/detail/update")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "데이터를 수정합니다.")
+    public void update(@RequestBody final ProductDto.ProductDetailUpdateReq dto) {
+        productService.update(dto);
+    }
+
+    @PutMapping("/detail/delete")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "데이터를 삭제합니다.")
+    public void delete(@RequestBody final ProductDto.ProductDetailDeleteReq dto) {
+        productService.delete(dto);
     }
 }

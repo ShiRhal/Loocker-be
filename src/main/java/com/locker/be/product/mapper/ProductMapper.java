@@ -9,7 +9,11 @@ import java.util.Collection;
 @Mapper
 public interface ProductMapper {
 
-    public Long create(ProductDto.ProductDetailReq dto);
+    public Long create(ProductDto.ProductDetailCreateReq dto);
+
+    public void update(ProductDto.ProductDetailUpdateReq dto);
+
+    public void delete(ProductDto.ProductDetailDeleteReq dto);
 
     public Collection<ProductQueryDto.ProductDetailRes> findOne(ProductQueryDto.ProductDetailReq dto);
 

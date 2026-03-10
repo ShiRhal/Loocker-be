@@ -3,7 +3,7 @@
 
 <mapper namespace="com.locker.be.product.mapper.ProductMapper">
 
-    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.product.dto.ProductDto$ProductDetailReq">
+    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.product.dto.ProductDto$ProductDetailCreateReq">
         EXECUTE SP_PRODUCT_DETAIL_INSERT
             #{TITLE}
             ,#{DESCRIPTION}

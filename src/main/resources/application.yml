@@ -31,3 +31,7 @@ google:
 jwt:
   secret: my-secret-jwt-key-for-loocker-project-2026-1234567890
   access-token-expire-ms: 3600000
+
+file:
+  upload:
+    product-path: src/main/resources/static/uploads/product

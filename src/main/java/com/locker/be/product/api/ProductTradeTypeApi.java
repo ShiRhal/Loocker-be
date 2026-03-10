@@ -20,6 +20,7 @@ public class ProductTradeTypeApi {
     private final ProductTradeTypeService productTradeTypeService;
 
     @PutMapping("/create")
+    @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "신규 데이터를 입력합니다.")
     public void findAll(ProductTradeTypeDto.ProductTradeTypeReq dto) {
         productTradeTypeService.create(dto);

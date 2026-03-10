@@ -22,13 +22,13 @@ public class ProductApi {
 
     @GetMapping("/select")
     @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
-    public Collection<ProductQueryDto.ProductRes> findAll(ProductQueryDto.ProductReq dto) {
+    public Collection<ProductQueryDto.ProductRes> findAll(@ModelAttribute final ProductQueryDto.ProductReq dto) {
         return productService.findAll(dto);
     }
 
     @GetMapping("/detail/select")
     @Operation(summary = "검색조건에 따른 상품 상세내용에 대한 데이터를 반환합니다.")
-    public Collection<ProductQueryDto.ProductDetailRes> findOne(ProductQueryDto.ProductDetailReq dto) {
+    public Collection<ProductQueryDto.ProductDetailRes> findOne(@ModelAttribute final ProductQueryDto.ProductDetailReq dto) {
         return productService.findOne(dto);
     }
 

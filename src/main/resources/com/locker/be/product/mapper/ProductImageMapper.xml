@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.product.mapper.ProductImageMapper">
+
+    <insert id="create" parameterType="com.locker.be.product.dto.ProductImageDto$ProductImageCreateReq">
+        EXECUTE SP_PRODUCT_IMAGE_INSERT
+            #{PRODUCT_ID}
+            ,#{IMAGE_URL}
+            ,#{SORT_ORDER}
+            ,#{IS_PRIMARY}
+            ,#{IS_ACTIVE}
+    </insert>
+
+    <delete id="delete" parameterType="com.locker.be.product.dto.ProductImageDto$ProductImageDeleteReq">
+        EXECUTE SP_PRODUCT_IMAGE_ALL_DELETE
+            #{PRODUCT_ID}
+    </delete>
+
+    <delete id="deleteForUpdate" parameterType="com.locker.be.product.dto.ProductImageDto$ProductImageDeleteReq">
+        EXECUTE SP_PRODUCT_IMAGE_DELETE
+            #{PRODUCT_ID}
+    </delete>
+
+    <select id="findPri" parameterType="com.locker.be.product.dto.ProductImageQueryDto$ProductPriImageReq" resultType="String">
+        EXECUTE SP_PRODUCT_PRIIMAGE_SELECT
+            #{PRODUCT_ID}
+    </select>
+
+    <select id="findAll" parameterType="com.locker.be.product.dto.ProductImageQueryDto$ProductImageReq" resultType="com.locker.be.product.dto.ProductImageQueryDto$ProductImageRes">
+        EXECUTE SP_PRODUCT_IMAGE_SELECT
+            #{PRODUCT_ID}
+    </select>
+</mapper>

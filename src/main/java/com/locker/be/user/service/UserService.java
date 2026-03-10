@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class UserService {
 
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
 
     public void update(UserDto.UserUpdateReq dto) {
         userMapper.update(dto);

@@ -1,0 +1,49 @@
+package com.locker.be.product.api;
+
+import com.locker.be.product.dto.ProductImageDto;
+import com.locker.be.product.dto.ProductImageQueryDto;
+import com.locker.be.product.dto.ProductQueryDto;
+import com.locker.be.product.service.ProductImageService;
+import io.swagger.v3.oas.annotations.Operation;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+
+@Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("product")
+public class ProductImageApi {
+
+    private final ProductImageService productImageService;
+
+    @PutMapping("/image/create")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "신규 데이터를 입력합니다.")
+    public void create(@RequestBody final ProductImageDto.ProductImageCreateReq dto) {
+        productImageService.saveImages(dto);
+    }
+
+    @PutMapping("/image/delete")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "신규 데이터를 삭제합니다.")
+    public void delete(@RequestBody final ProductImageDto.ProductImageDeleteReq dto) {
+        productImageService.delete(dto);
+    }
+
+    @PutMapping("/image/delete/for/update")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "기존 데이터를 삭제 후 재등록 합니다.")
+    public void update(@RequestBody final ProductImageDto.ProductImageDeleteReq deleteDto, ProductImageQueryDto.ProductPriImageReq priDto) {
+        productImageService.deleteForUpdate(deleteDto, priDto);
+    }
+
+    @GetMapping("/image/select")
+    @Operation(summary = "검색조건에 따른 상품 상세내용에 대한 데이터를 반환합니다.")
+    public Collection<ProductImageQueryDto.ProductImageRes> findAll(@ModelAttribute final ProductImageQueryDto.ProductImageReq dto) {
+        return productImageService.findAll(dto);
+    }
+}

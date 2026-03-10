@@ -34,7 +34,7 @@ public class ProductApi {
 
     @PostMapping("/detail/create")
     @Operation(summary = "신규 데이터를 입력합니다.")
-    public Long findAll(ProductDto.ProductDetailReq dto) {
+    public Long findAll(@RequestBody final ProductDto.ProductDetailReq dto) {
         return productService.create(dto);
     }
 }

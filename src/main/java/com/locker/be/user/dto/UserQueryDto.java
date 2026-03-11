@@ -1,0 +1,94 @@
+package com.locker.be.user.dto;
+
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.locker.be.CustomUpperSnakeCaseStrategy;
+import lombok.*;
+
+import java.util.Collection;
+
+public class UserQueryDto {
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PUBLIC)
+    public static class UserInfoRes {
+        private UserQueryDto.UserRes USER;
+        private Collection<UserProductRes> PRODUCT;
+        private Collection<UserWishlistRes> WISHLIST;
+        private Collection<UserAccountRes> ACCOUNT;
+        private Collection<UserAddressRes> ADDRESS;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserRes {
+        private Long USER_ID;
+        private String NICKNAME;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserProductRes {
+        private String TITLE;
+        private String IMAGE_URL;
+        private String PRODUCT_STATUS_CODE;
+        private Long VIEW_COUNT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserWishlistRes {
+        private String TITLE;
+        private String IMAGE_URL;
+        private String PRODUCT_STATUS_CODE;
+        private Long VIEW_COUNT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserAccountRes {
+        private Long ACCOUNT_ID;
+        private String BANK_NAME;
+        private String ACCOUNT_NUMBER;
+        private Boolean IS_DEFAULT;
+        private Boolean IS_ACTIVE;
+        private String CREATED_AT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserAddressRes {
+        private Long ADDRESS_ID;
+        private String ADDRESS;
+        private Boolean IS_DEFAULT;
+        private Boolean IS_ACTIVE;
+        private String CREATED_AT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PUBLIC)
+    public static class UserInfoReq {
+        private Long USER_ID;
+
+        @Builder
+        public UserInfoReq (
+                Long USER_ID
+        ) {
+            this.USER_ID = USER_ID;
+        }
+    }
+
+}

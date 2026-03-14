@@ -5,6 +5,7 @@ import com.locker.be.product.dto.ProductImageQueryDto;
 import com.locker.be.product.dto.ProductQueryDto;
 import com.locker.be.product.service.ProductImageService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("product")
+@Tag(name = "이미지 API", description = "자바단에서 입력과 삭제가 진행 되기에 api 호출은 하지 않습니다. {참고용}")
 public class ProductImageApi {
 
     private final ProductImageService productImageService;
@@ -42,7 +44,7 @@ public class ProductImageApi {
     }
 
     @GetMapping("/image/select")
-    @Operation(summary = "검색조건에 따른 상품 상세내용에 대한 데이터를 반환합니다.")
+    @Operation(summary = "검색조건에 따른 상품 이미지에 대한 데이터를 반환합니다.")
     public Collection<ProductImageQueryDto.ProductImageRes> findAll(@ModelAttribute final ProductImageQueryDto.ProductImageReq dto) {
         return productImageService.findAll(dto);
     }

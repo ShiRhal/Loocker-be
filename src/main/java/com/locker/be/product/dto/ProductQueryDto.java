@@ -29,6 +29,7 @@ public class ProductQueryDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductReq {
+        private Long USER_ID;
         private String DS_TITLE;
         private String DS_MAIN_CATEGORY;
         private String DS_SUB_CATEGORY;
@@ -42,6 +43,7 @@ public class ProductQueryDto {
 
         @Builder
         public ProductReq (
+                Long USER_ID,
                 String DS_TITLE,
                 String DS_MAIN_CATEGORY,
                 String DS_SUB_CATEGORY,
@@ -53,6 +55,7 @@ public class ProductQueryDto {
                 String DS_CITY,
                 Long PAGE
         ) {
+            this.USER_ID = USER_ID;
             this.DS_TITLE = DS_TITLE;
             this.DS_MAIN_CATEGORY = DS_MAIN_CATEGORY;
             this.DS_SUB_CATEGORY = DS_SUB_CATEGORY;

@@ -53,6 +53,24 @@ public class UserService {
     }
 
     // @Transactional(readOnly = true)
+    public Collection<UserQueryDto.UserSaleRes> findSale(UserQueryDto.UserInfoReq dto) {
+
+        return userMapper.findSale(dto);
+    }
+
+    // @Transactional(readOnly = true)
+    public Collection<UserQueryDto.UserBuyRes> findBuy(UserQueryDto.UserInfoReq dto) {
+
+        return userMapper.findBuy(dto);
+    }
+
+    // @Transactional(readOnly = true)
+    public Collection<UserQueryDto.UserReviewRes> findReview(UserQueryDto.UserInfoReq dto) {
+
+        return userMapper.findReview(dto);
+    }
+
+    // @Transactional(readOnly = true)
     public UserQueryDto.UserRes findUser(UserQueryDto.UserInfoReq dto) {
 
         return userMapper.findUser(dto);
@@ -67,6 +85,9 @@ public class UserService {
         res.setWISHLIST(findWish(dto));
         res.setACCOUNT(findAccount(dto));
         res.setADDRESS(findAddress(dto));
+        res.setSALELIST(findSale(dto));
+        res.setBUYLIST(findBuy(dto));
+        res.setREVIEW(findReview(dto));
         return res;
     }
 }

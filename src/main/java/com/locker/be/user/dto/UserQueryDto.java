@@ -18,6 +18,9 @@ public class UserQueryDto {
         private Collection<UserWishlistRes> WISHLIST;
         private Collection<UserAccountRes> ACCOUNT;
         private Collection<UserAddressRes> ADDRESS;
+        private Collection<UserSaleRes> SALELIST;
+        private Collection<UserBuyRes> BUYLIST;
+        private Collection<UserReviewRes> REVIEW;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -74,6 +77,46 @@ public class UserQueryDto {
         private Boolean IS_DEFAULT;
         private Boolean IS_ACTIVE;
         private String CREATED_AT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserSaleRes {
+        private String TITLE;
+        private String IMAGE_URL;
+        private String PRODUCT_STATUS_CODE;
+        private Long VIEW_COUNT;
+        private String BUYER_NICKNAME;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserBuyRes {
+        private String TITLE;
+        private String IMAGE_URL;
+        private String PRODUCT_STATUS_CODE;
+        private Long VIEW_COUNT;
+        private String SALLER_NICKNAME;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserReviewRes {
+        private Long REVIEW_ID;
+        private Long TRADE_ID;
+        private Long PRODUCT_ID;
+        private String WRITER_NICKNAME;
+        private String TARGET_USER_NICKNAME;
+        private Long SCORE;
+        private String CONTENT;
+        private String CREATED_AT;
+        private String REVIEW_TYPE;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

@@ -23,5 +23,11 @@ public interface UserMapper {
 
     public Collection<UserQueryDto.UserAddressRes> findAddress(UserQueryDto.UserInfoReq dto);
 
+    public Collection<UserQueryDto.UserSaleRes> findSale(UserQueryDto.UserInfoReq dto);
+
+    public Collection<UserQueryDto.UserBuyRes> findBuy(UserQueryDto.UserInfoReq dto);
+
+    public Collection<UserQueryDto.UserReviewRes> findReview(UserQueryDto.UserInfoReq dto);
+
     public UserQueryDto.UserRes findUser(UserQueryDto.UserInfoReq dto);
 }

@@ -39,6 +39,21 @@
             #{USER_ID}
     </select>
 
+    <select id="findSale" parameterType="com.locker.be.user.dto.UserQueryDto$UserInfoReq" resultType="com.locker.be.user.dto.UserQueryDto$UserSaleRes">
+        EXECUTE SP_USER_SALE_SELECT
+            #{USER_ID}
+    </select>
+
+    <select id="findBuy" parameterType="com.locker.be.user.dto.UserQueryDto$UserInfoReq" resultType="com.locker.be.user.dto.UserQueryDto$UserBuyRes">
+        EXECUTE SP_USER_BUY_SELECT
+            #{USER_ID}
+    </select>
+
+    <select id="findReview" parameterType="com.locker.be.user.dto.UserQueryDto$UserInfoReq" resultType="com.locker.be.user.dto.UserQueryDto$UserReviewRes">
+        EXECUTE SP_USER_REVIEW_SELECT
+            #{USER_ID}
+    </select>
+
     <select id="findUser" parameterType="com.locker.be.user.dto.UserQueryDto$UserInfoReq" resultType="com.locker.be.user.dto.UserQueryDto$UserRes">
         EXECUTE SP_AUTH_ME_SELECT
             #{USER_ID}

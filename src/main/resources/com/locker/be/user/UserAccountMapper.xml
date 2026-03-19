@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.user.mapper.UserAccountMapper">
+
+    <insert id="create" parameterType="com.locker.be.user.dto.UserAccountDto$UserAccountCreateReq">
+        EXECUTE SP_USER_ACCOUNT_INSERT
+            #{USER_ID}
+            ,#{BANK_NAME}
+            ,#{ACCOUNT_NUMBER}
+    </insert>
+
+    <update id="update" parameterType="com.locker.be.user.dto.UserAccountDto$UserAccountUpdateReq">
+        EXECUTE SP_USER_ACCOUNT_UPDATE
+            #{USER_ID}
+            ,#{ACCOUNT_ID}
+            ,#{BANK_NAME}
+            ,#{ACCOUNT_NUMBER}
+            ,#{IS_DEFAULT}
+    </update>
+
+    <delete id="delete" parameterType="com.locker.be.user.dto.UserAccountDto$UserAccountDeleteReq">
+        EXECUTE SP_USER_ACCOUNT_DELETE
+            #{USER_ID}
+            ,#{ACCOUNT_ID}
+    </delete>
+
+</mapper>

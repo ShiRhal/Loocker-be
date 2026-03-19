@@ -100,7 +100,7 @@ public class UserQueryDto {
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
-        private String SALLER_NICKNAME;
+        private String SELLER_NICKNAME;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

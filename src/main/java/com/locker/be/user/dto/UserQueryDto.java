@@ -41,6 +41,7 @@ public class UserQueryDto {
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
+        private String CREATED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -89,6 +90,7 @@ public class UserQueryDto {
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
         private String BUYER_NICKNAME;
+        private String COMPLETED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -101,6 +103,7 @@ public class UserQueryDto {
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
         private String SELLER_NICKNAME;
+        private String COMPLETED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

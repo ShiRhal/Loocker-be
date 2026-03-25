@@ -41,6 +41,7 @@ public class UserQueryDto {
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
+        private String CREATED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -48,6 +49,7 @@ public class UserQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserWishlistRes {
+        private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
@@ -89,6 +91,7 @@ public class UserQueryDto {
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
         private String BUYER_NICKNAME;
+        private String COMPLETED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -101,6 +104,7 @@ public class UserQueryDto {
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
         private String SELLER_NICKNAME;
+        private String COMPLETED_AT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

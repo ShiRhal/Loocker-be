@@ -76,8 +76,14 @@ public class ProductService {
     }
 
     // @Transactional(readOnly = true)
-    public Collection<ProductQueryDto.ProductRes> findAll(ProductQueryDto.ProductReq dto) {
+    public ProductQueryDto.ProductAllRes findAll(ProductQueryDto.ProductReq dto) {
+        Collection<ProductQueryDto.ProductRes> productList = productMapper.findAll(dto);
+        ProductQueryDto.ProductPriceStatusRes priceStatus = productMapper.findPriceStatus(dto);
 
-        return productMapper.findAll(dto);
+        ProductQueryDto.ProductAllRes res = new ProductQueryDto.ProductAllRes();
+        res.setPRODUCT_LIST(productList);
+        res.setPRICE_STATUS(priceStatus);
+
+        return res;
     }
 }

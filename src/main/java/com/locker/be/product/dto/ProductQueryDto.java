@@ -11,6 +11,15 @@ public class ProductQueryDto {
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
     @Setter
+    @NoArgsConstructor(access = AccessLevel.PUBLIC)
+    public static class ProductAllRes {
+        private Collection<ProductRes> PRODUCT_LIST;
+        private ProductPriceStatusRes PRICE_STATUS;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductRes {
         private Long PRODUCT_ID;
@@ -22,6 +31,17 @@ public class ProductQueryDto {
         private String LOCKER_BADGE;
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class ProductPriceStatusRes {
+        private Long MIN_PRICE;
+        private Long AVG_PRICE;
+        private Long MAX_PRICE;
+        private Long PRODUCT_COUNT;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

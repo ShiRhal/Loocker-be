@@ -24,7 +24,7 @@ public class ProductApi {
 
     @GetMapping("/select")
     @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
-    public Collection<ProductQueryDto.ProductRes> findAll(@ModelAttribute final ProductQueryDto.ProductReq dto) {
+    public ProductQueryDto.ProductAllRes findAll(@ModelAttribute final ProductQueryDto.ProductReq dto) {
         return productService.findAll(dto);
     }
 

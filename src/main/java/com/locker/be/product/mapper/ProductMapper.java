@@ -18,4 +18,6 @@ public interface ProductMapper {
     public Collection<ProductQueryDto.ProductDetailRes> findOne(ProductQueryDto.ProductDetailReq dto);
 
     public Collection<ProductQueryDto.ProductRes> findAll(ProductQueryDto.ProductReq dto);
+
+    public ProductQueryDto.ProductPriceStatusRes findPriceStatus(ProductQueryDto.ProductReq dto);
 }

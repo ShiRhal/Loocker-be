@@ -1,9 +1,12 @@
 package com.locker.be.user.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.locker.be.CustomUpperSnakeCaseStrategy;
 import lombok.*;
 
 public class UserDto {
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,15 +20,17 @@ public class UserDto {
         private String CREATED_AT;
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserUpdateReq {
-        private Long USER_ID;
+        private Integer USER_ID;
         private String NICKNAME;
 
         @Builder
         public UserUpdateReq (
-                Long USER_ID,
+                Integer USER_ID,
                 String NICKNAME
         ) {
             this.USER_ID = USER_ID;
@@ -33,7 +38,9 @@ public class UserDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserBannedReq {
         private Long USER_ID;
@@ -46,7 +53,9 @@ public class UserDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserDeleteReq {
         private Long USER_ID;

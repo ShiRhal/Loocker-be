@@ -1,13 +1,14 @@
 package com.locker.be.user.dto;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.locker.be.CustomUpperSnakeCaseStrategy;
+import lombok.*;
 
 public class UserAddressDto {
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserAddressCreateReq {
         private Long USER_ID;
@@ -23,7 +24,9 @@ public class UserAddressDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserAddressUpdateReq {
         private Long USER_ID;
@@ -45,7 +48,9 @@ public class UserAddressDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Getter
+    @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserAddressDeleteReq {
         private Long USER_ID;

@@ -21,6 +21,12 @@ public class UserApi {
 
     private final UserService userService;
 
+    @GetMapping("/nickname/select")
+    @Operation(summary = "검색조건에 따른 닉네임에 대한 데이터를 반환합니다.")
+    public UserQueryDto.UserRes findUser(@ModelAttribute final UserQueryDto.UserInfoReq dto) {
+        return userService.findUser(dto);
+    }
+
     @PutMapping("/nickname/update")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "닉네임을 수정 합니다.")

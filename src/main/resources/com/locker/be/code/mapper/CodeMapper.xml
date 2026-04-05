@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.code.mapper.CodeMapper">
+
+    <select id="findState" resultType="com.locker.be.code.dto.CodeQueryDto$StateRes">
+        EXECUTE SP_STATE_SELECT
+    </select>
+
+    <select id="findCity" resultType="com.locker.be.code.dto.CodeQueryDto$CityRes">
+        EXECUTE SP_CITY_SELECT
+    </select>
+
+    <select id="findMainCategory" resultType="com.locker.be.code.dto.CodeQueryDto$MainCategoryRes">
+        EXECUTE SP_MAIN_CATEGORY_SELECT
+    </select>
+
+    <select id="findSubCategory" resultType="com.locker.be.code.dto.CodeQueryDto$SubCategoryRes">
+        EXECUTE SP_SUB_CATEGORY_SELECT
+    </select>
+
+</mapper>

@@ -23,25 +23,25 @@ public class CodeApi {
     private final CodeService codeService;
 
     @GetMapping("/state")
-    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    @Operation(summary = "검색조건에 따른 도 리스트에 대한 데이터를 반환합니다.")
     public Collection<CodeQueryDto.StateRes> findState() {
         return codeService.findState();
     }
 
     @GetMapping("/city")
-    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    @Operation(summary = "검색조건에 따른 시 리스트에 대한 데이터를 반환합니다.")
     public Collection<CodeQueryDto.CityRes> findCity() {
         return codeService.findCity();
     }
 
     @GetMapping("/main/category")
-    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    @Operation(summary = "검색조건에 따른 메인 카테고리 리스트에 대한 데이터를 반환합니다.")
     public Collection<CodeQueryDto.MainCategoryRes> findMainCategory() {
         return codeService.findMainCategory();
     }
 
     @GetMapping("/sub/category")
-    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    @Operation(summary = "검색조건에 따른 서브 카테고리 리스트에 대한 데이터를 반환합니다.")
     public Collection<CodeQueryDto.SubCategoryRes> findSubCategory() {
         return codeService.findSubCategory();
     }

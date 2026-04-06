@@ -89,6 +89,7 @@ public class UserQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserSaleRes {
+        private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
@@ -103,6 +104,7 @@ public class UserQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserBuyRes {
+        private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;

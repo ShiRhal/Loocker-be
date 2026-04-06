@@ -25,7 +25,7 @@ public class ProductQueryDto {
         private Long PRODUCT_ID;
         private String IMAGE_URL;
         private String TITLE;
-        private String BASE_PRICE;
+        private Long BASE_PRICE;
         private String CITY;
         private String CREATED_AT;
         private String LOCKER_BADGE;

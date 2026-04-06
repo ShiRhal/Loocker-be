@@ -54,6 +54,7 @@ public class UserQueryDto {
         private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
+        private Long BASE_PRICE;
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
     }

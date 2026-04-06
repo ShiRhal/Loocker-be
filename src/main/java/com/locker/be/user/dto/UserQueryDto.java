@@ -40,6 +40,7 @@ public class UserQueryDto {
         private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
+        private Long BASE_PRICE;
         private String PRODUCT_STATUS_CODE;
         private Long VIEW_COUNT;
         private String CREATED_AT;
@@ -90,6 +91,7 @@ public class UserQueryDto {
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
+        private Long BASE_PRICE;
         private Long VIEW_COUNT;
         private String BUYER_NICKNAME;
         private String COMPLETED_AT;
@@ -103,6 +105,7 @@ public class UserQueryDto {
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;
+        private Long BASE_PRICE;
         private Long VIEW_COUNT;
         private String SELLER_NICKNAME;
         private String COMPLETED_AT;

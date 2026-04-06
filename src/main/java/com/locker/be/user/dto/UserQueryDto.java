@@ -37,7 +37,7 @@ public class UserQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class UserProductRes {
-        private Long PRODUCT_ID
+        private Long PRODUCT_ID;
         private String TITLE;
         private String IMAGE_URL;
         private String PRODUCT_STATUS_CODE;

@@ -59,6 +59,7 @@ public class ProductQueryDto {
         private Boolean YN_LOCKER;
         private String DS_STATE;
         private String DS_CITY;
+        private String SORT_TYPE;
         private Long PAGE;
 
         @Builder
@@ -73,6 +74,7 @@ public class ProductQueryDto {
                 Boolean YN_LOCKER,
                 String DS_STATE,
                 String DS_CITY,
+                String SORT_TYPE,
                 Long PAGE
         ) {
             this.USER_ID = USER_ID;
@@ -85,6 +87,7 @@ public class ProductQueryDto {
             this.YN_LOCKER = YN_LOCKER;
             this.DS_STATE = DS_STATE;
             this.DS_CITY = DS_CITY;
+            this.SORT_TYPE = SORT_TYPE;
             this.PAGE = PAGE;
         }
     }

@@ -33,6 +33,7 @@
             ,#{YN_LOCKER}
             ,#{DS_STATE}
             ,#{DS_CITY}
+            ,#{SORT_TYPE}
             ,#{PAGE}
     </select>
 

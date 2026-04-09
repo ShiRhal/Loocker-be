@@ -34,4 +34,4 @@ jwt:
 
 file:
   upload:
-    product-path: src/main/resources/static/uploads/product
+    product-path: uploads/product

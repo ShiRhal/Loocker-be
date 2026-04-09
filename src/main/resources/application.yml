@@ -34,4 +34,4 @@ jwt:
 
 file:
   upload:
-    product-path: uploads/product
+    product-path: ${PRODUCT_UPLOAD_PATH:uploads/product}

@@ -34,9 +34,9 @@ public class ProductApi {
         return productService.findOne(dto);
     }
 
-    @PostMapping("/detail/create")
+    @PostMapping(value = "/detail/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "신규 데이터를 입력합니다.")
-    public Long findAll(@RequestBody final ProductDto.ProductDetailCreateReq dto) {
+    public Long create(@ModelAttribute ProductDto.ProductDetailCreateReq dto) {
         return productService.create(dto);
     }
 

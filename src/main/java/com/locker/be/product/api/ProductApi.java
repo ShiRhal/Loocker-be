@@ -40,10 +40,10 @@ public class ProductApi {
         return productService.create(dto);
     }
 
-    @PutMapping("/detail/update")
-    @ResponseStatus(value = HttpStatus.OK)
+    @PutMapping(value = "/detail/update", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "데이터를 수정합니다.")
-    public void update(@RequestBody final ProductDto.ProductDetailUpdateReq dto) {
+    public void update(@ModelAttribute final ProductDto.ProductDetailUpdateReq dto) {
         productService.update(dto);
     }
 

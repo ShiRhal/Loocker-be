@@ -44,7 +44,7 @@ public class ProductDto {
         private String SUB_CATEGORY;
         private String NICKNAME;
         private String TRADE_TYPE;
-        private Long NewID;
+        private Long NEW_ID;
         private MultipartFile[] files;
 
         @Builder
@@ -57,7 +57,7 @@ public class ProductDto {
                 String SUB_CATEGORY,
                 String NICKNAME,
                 String TRADE_TYPE,
-                Long NewID,
+                Long NEW_ID,
                 MultipartFile[] files
         ) {
             this.TITLE = TITLE;
@@ -68,7 +68,7 @@ public class ProductDto {
             this.SUB_CATEGORY = SUB_CATEGORY;
             this.NICKNAME = NICKNAME;
             this.TRADE_TYPE = TRADE_TYPE;
-            this.NewID = NewID;
+            this.NEW_ID = NEW_ID;
             this.files = files;
         }
     }

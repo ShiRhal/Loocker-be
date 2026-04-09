@@ -40,15 +40,11 @@ public class AuthService {
         param.setProviderType(providerType);
         param.setProviderKey(providerKey);
         param.setNickname(nickname);
-        System.out.println("=== GOOGLE LOGIN START ===");
-        System.out.println("providerType = " + providerType);
-        System.out.println("providerKey = " + providerKey);
-        System.out.println("nickname = " + nickname);
+       
 
         AuthDto.UserInfo userInfo = authMapper.loginOrRegisterGoogle(param);
 
-        System.out.println("=== USER INFO ===");
-        System.out.println("userInfo = " + userInfo);
+      
         String accessToken = null;
 
         if ("SUCCESS".equals(userInfo.getResultCode())) {

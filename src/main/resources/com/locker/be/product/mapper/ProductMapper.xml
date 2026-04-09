@@ -13,7 +13,7 @@
             ,#{SUB_CATEGORY}
             ,#{NICKNAME}
             ,#{TRADE_TYPE}
-            ,#{NewId, mode=OUT, jdbcType=BIGINT}
+            ,#{NEW_ID, mode=OUT, jdbcType=BIGINT}
     </insert>
 
     <select id="findOne" parameterType="com.locker.be.product.dto.ProductQueryDto$ProductDetailReq" resultType="com.locker.be.product.dto.ProductQueryDto$ProductDetailRes">

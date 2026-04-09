@@ -57,8 +57,16 @@ public class ProductImageService {
 
             try {
                 file.transferTo(dest);
-            } catch (IOException e) {
-                throw new RuntimeException("이미지 저장 실패: " + originalFilename, e);
+            } catch (IOException | IllegalStateException e) {
+                throw new RuntimeException(
+                    "이미지 저장 실패"
+                        + "\noriginalFilename = " + originalFilename
+                        + "\nsavedFileName = " + savedFileName
+                        + "\ndest = " + dest.getAbsolutePath()
+                        + "\nuploadPath = " + uploadPath
+                        + "\nmessage = " + e.getMessage(),
+                    e
+                );
             }
 
             String imageUrl = "/uploads/product/" + dto.getPRODUCT_ID() + "/" + savedFileName;

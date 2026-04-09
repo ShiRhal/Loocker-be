@@ -22,7 +22,7 @@ public class ProductService {
 
     public Long create(ProductDto.ProductDetailCreateReq dto) {
         productMapper.create(dto);
-        Long productId = dto.getNewID();
+        Long productId = dto.getNEW_ID();
 
         ProductImageDto.ProductImageCreateReq imageDto = new ProductImageDto.ProductImageCreateReq();
         imageDto.setPRODUCT_ID(productId);

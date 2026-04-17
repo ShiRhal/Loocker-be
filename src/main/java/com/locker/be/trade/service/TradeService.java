@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class TradeService {
 
-    private TradeMapper tradeMapper;
-    private JwtUtil jwtUtil;
+    private final TradeMapper tradeMapper;
+    private final JwtUtil jwtUtil;
 
     public Long create (TradeDto.TradeInsertReq dto, String token) {
         Long userID = jwtUtil.getUserId(token);

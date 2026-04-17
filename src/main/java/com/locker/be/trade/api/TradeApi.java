@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "거래 API", description = "거래를 위한 API 입니다.")
 public class TradeApi {
 
-    private TradeService tradeService;
+    private final TradeService tradeService;
 
     @PutMapping("/create")
     @ResponseStatus(value = HttpStatus.OK)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.trade.mapper.TradeMapper">
+
+    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.trade.dto.TradeDto$TradeInsertReq">
+        EXECUTE SP_TRADE_INSERT
+            #{PRODUCT_ID}
+            , #{USER_ID}
+            , #{TRADE_TYPE_CODE}
+            , #{TRADE_ID}
+    </insert>
+</mapper>

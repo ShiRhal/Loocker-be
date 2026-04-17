@@ -8,6 +8,6 @@
             #{PRODUCT_ID}
             , #{USER_ID}
             , #{TRADE_TYPE_CODE}
-            , #{TRADE_ID}
+            , #{CHAT_ROOM_ID}
     </insert>
 </mapper>

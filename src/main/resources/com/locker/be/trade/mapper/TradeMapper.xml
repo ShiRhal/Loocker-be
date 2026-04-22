@@ -10,4 +10,11 @@
             , #{TRADE_TYPE_CODE}
             , #{CHAT_ROOM_ID}
     </insert>
+
+    <update id="update" parameterType="com.locker.be.trade.dto.TradeDto$TradeUpdateReq">
+        EXECUTE SP_TRADE_UPDATE
+            #{TRADE_ID}
+            , #{USER_ID}
+            , #{NEXT_STATUS_CODE}
+    </update>
 </mapper>

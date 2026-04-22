@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TradeMapper {
 
     public Long create(TradeDto.TradeInsertReq dto);
+
+    public void update(TradeDto.TradeUpdateReq dto);
 }

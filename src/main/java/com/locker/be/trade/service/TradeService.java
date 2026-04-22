@@ -26,4 +26,19 @@ public class TradeService {
 
         return tradeMapper.create(params);
     }
+
+    public void update (TradeDto.TradeUpdateReq dto, String token) {
+        if (token == null || token.isBlank()) {
+            tradeMapper.update(dto);
+            return;
+        }
+
+        Long userID = jwtUtil.getUserId(token);
+        TradeDto.TradeUpdateReq params = TradeDto.TradeUpdateReq.builder()
+                .TRADE_ID(dto.getTRADE_ID())
+                .USER_ID(userID)
+                .NEXT_STATUS_CODE(dto.getNEXT_STATUS_CODE())
+                .build();
+        tradeMapper.update(params);
+    }
 }

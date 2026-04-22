@@ -21,7 +21,7 @@ public class TradeApi {
     @PutMapping("/create")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")
-    public Long create(@RequestBody final TradeDto.TradeInsertReq dto, @RequestHeader("Authorization") String authorization) {
+    public Long create(@RequestBody final TradeDto.TradeCreateReq dto, @RequestHeader("Authorization") String authorization) {
         String token = authorization.replace("Bearer ", "");
         return tradeService.create(dto, token);
     }

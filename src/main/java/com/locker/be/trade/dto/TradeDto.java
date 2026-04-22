@@ -10,14 +10,14 @@ public class TradeDto {
     @Setter
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
-    public static class TradeInsertReq {
+    public static class TradeCreateReq {
         private Long PRODUCT_ID;
         private Long USER_ID;
         private String TRADE_TYPE_CODE;
         private Long CHAT_ROOM_ID;
 
         @Builder
-        public TradeInsertReq (
+        public TradeCreateReq (
                 Long PRODUCT_ID,
                 Long USER_ID,
                 String TRADE_TYPE_CODE,

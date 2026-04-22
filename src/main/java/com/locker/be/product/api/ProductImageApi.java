@@ -2,7 +2,6 @@ package com.locker.be.product.api;
 
 import com.locker.be.product.dto.ProductImageDto;
 import com.locker.be.product.dto.ProductImageQueryDto;
-import com.locker.be.product.dto.ProductQueryDto;
 import com.locker.be.product.service.ProductImageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

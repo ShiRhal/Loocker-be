@@ -1,6 +1,5 @@
 package com.locker.be.user.api;
 
-import com.locker.be.user.dto.UserAccountDto;
 import com.locker.be.user.dto.UserQueryDto;
 import com.locker.be.user.dto.UserWishlistDto;
 import com.locker.be.user.service.UserService;

@@ -1,7 +1,6 @@
 package com.locker.be.user.mapper;
 
 import com.locker.be.user.dto.UserAccountDto;
-import com.locker.be.user.dto.UserQueryDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Collection;

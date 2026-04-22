@@ -1,9 +1,7 @@
 package com.locker.be.user.api;
 
-import com.locker.be.user.dto.UserAccountDto;
 import com.locker.be.user.dto.UserAddressDto;
 import com.locker.be.user.dto.UserQueryDto;
-import com.locker.be.user.service.UserAccountService;
 import com.locker.be.user.service.UserAddressService;
 import com.locker.be.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;

@@ -3,7 +3,6 @@ package com.locker.be.product.dto;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.locker.be.CustomUpperSnakeCaseStrategy;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 public class ProductImageQueryDto {
 

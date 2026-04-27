@@ -1,11 +1,14 @@
 package com.locker.be.trade.service;
 
 import com.locker.be.trade.dto.TradeDto;
+import com.locker.be.trade.dto.TradeQueryDto;
 import com.locker.be.trade.mapper.TradeMapper;
 import com.locker.be.user.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
 
 @Service
 @Transactional
@@ -40,5 +43,11 @@ public class TradeService {
                 .NEXT_STATUS_CODE(dto.getNEXT_STATUS_CODE())
                 .build();
         tradeMapper.update(params);
+    }
+
+    // @Transactional(readOnly = true)
+    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto) {
+
+        return tradeMapper.findId(dto);
     }
 }

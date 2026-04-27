@@ -3,6 +3,12 @@
 
 <mapper namespace="com.locker.be.trade.mapper.TradeMapper">
 
+    <select id="findId" resultType="com.locker.be.trade.dto.TradeQueryDto$TradeRes" parameterType="com.locker.be.trade.dto.TradeQueryDto$TradeReq">
+        EXECUTE SP_TRADE_SELECT
+            #{PRODUCT_ID}
+            , #{USER_ID}
+    </select>
+
     <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.trade.dto.TradeDto$TradeCreateReq">
         EXECUTE SP_TRADE_INSERT
             #{PRODUCT_ID}

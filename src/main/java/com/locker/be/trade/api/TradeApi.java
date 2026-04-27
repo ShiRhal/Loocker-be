@@ -1,6 +1,8 @@
 package com.locker.be.trade.api;
 
+import com.locker.be.search.dto.SearchQueryDto;
 import com.locker.be.trade.dto.TradeDto;
+import com.locker.be.trade.dto.TradeQueryDto;
 import com.locker.be.trade.service.TradeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -8,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @Slf4j
 @RestController
@@ -17,6 +21,12 @@ import org.springframework.web.bind.annotation.*;
 public class TradeApi {
 
     private final TradeService tradeService;
+
+    @GetMapping("/id/select")
+    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto) {
+        return tradeService.findId(dto);
+    }
 
     @PutMapping("/create")
     @ResponseStatus(value = HttpStatus.OK)

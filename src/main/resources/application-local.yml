@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://10.207.55.169:1433;databaseName=Locker;encrypt=true;trustServerCertificate=true
+    username: locker
+    password: 1355
+
+# ===== MyBatis (XML 기반) =====
+mybatis:
+  mapper-locations: classpath:/com/locker/be/**/*.xml
+  type-aliases-package: com.locker.be.product.dto
+
+# ===== Swagger (springdoc-openapi) =====
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    display-request-duration: true
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID}
+
+jwt:
+  secret: my-secret-jwt-key-for-loocker-project-2026-1234567890
+  access-token-expire-ms: 3600000
+
+file:
+  upload:
+    product-path: ${PRODUCT_UPLOAD_PATH:uploads/product}

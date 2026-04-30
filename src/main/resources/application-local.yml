@@ -13,7 +13,7 @@ spring:
 # ===== MyBatis (XML 기반) =====
 mybatis:
   mapper-locations: classpath:/com/locker/be/**/*.xml
-  type-aliases-package: com.locker.be.product.dto
+  type-aliases-package: com.locker.be
 
 # ===== Swagger (springdoc-openapi) =====
 springdoc:

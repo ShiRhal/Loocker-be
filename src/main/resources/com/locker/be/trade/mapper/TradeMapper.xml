@@ -14,7 +14,8 @@
             #{PRODUCT_ID}
             , #{USER_ID}
             , #{TRADE_TYPE_CODE}
-            , #{CHAT_ROOM_ID}
+            , #{CHAT_ROOM_ID, mode=OUT}
+            , #{TRADE_ID, mode=OUT}
     </insert>
 
     <update id="update" parameterType="com.locker.be.trade.dto.TradeDto$TradeUpdateReq">

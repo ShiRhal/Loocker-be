@@ -15,18 +15,21 @@ public class TradeDto {
         private Long USER_ID;
         private String TRADE_TYPE_CODE;
         private Long CHAT_ROOM_ID;
+        private Long TRADE_ID;
 
         @Builder
         public TradeCreateReq (
                 Long PRODUCT_ID,
                 Long USER_ID,
                 String TRADE_TYPE_CODE,
-                Long CHAT_ROOM_ID
+                Long CHAT_ROOM_ID,
+                Long TRADE_ID
         ) {
             this.PRODUCT_ID = PRODUCT_ID;
             this.USER_ID = USER_ID;
             this.TRADE_TYPE_CODE = TRADE_TYPE_CODE;
             this.CHAT_ROOM_ID = CHAT_ROOM_ID;
+            this.TRADE_ID = TRADE_ID;
         }
     }
 

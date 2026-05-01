@@ -27,7 +27,8 @@ public class TradeService {
                 .TRADE_TYPE_CODE(dto.getTRADE_TYPE_CODE())
                 .build();
 
-        return tradeMapper.create(params);
+        tradeMapper.create(params);
+        return params.getTRADE_ID();
     }
 
     public void update (TradeDto.TradeUpdateReq dto, String token) {

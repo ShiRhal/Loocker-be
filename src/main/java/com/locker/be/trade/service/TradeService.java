@@ -31,10 +31,10 @@ public class TradeService {
         return params.getTRADE_ID();
     }
 
-    public void update (TradeDto.TradeUpdateReq dto, String token) {
+    public String update (TradeDto.TradeUpdateReq dto, String token) {
         if (token == null || token.isBlank()) {
             tradeMapper.update(dto);
-            return;
+            return dto.getRESULT_STATUS_CODE();
         }
 
         Long userID = jwtUtil.getUserId(token);
@@ -44,11 +44,16 @@ public class TradeService {
                 .NEXT_STATUS_CODE(dto.getNEXT_STATUS_CODE())
                 .build();
         tradeMapper.update(params);
+        return params.getRESULT_STATUS_CODE();
     }
 
     // @Transactional(readOnly = true)
-    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto) {
-
-        return tradeMapper.findId(dto);
+    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto, String token) {
+        Long userID = jwtUtil.getUserId(token);
+        TradeQueryDto.TradeReq params = TradeQueryDto.TradeReq.builder()
+                .PRODUCT_ID(dto.getPRODUCT_ID())
+                .USER_ID(userID)
+                .build();
+        return tradeMapper.findId(params);
     }
 }

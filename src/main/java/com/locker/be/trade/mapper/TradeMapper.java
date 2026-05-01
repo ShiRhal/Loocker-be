@@ -11,7 +11,7 @@ public interface TradeMapper {
 
     public Long create(TradeDto.TradeCreateReq dto);
 
-    public void update(TradeDto.TradeUpdateReq dto);
+    public String update(TradeDto.TradeUpdateReq dto);
 
     public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto);
 }

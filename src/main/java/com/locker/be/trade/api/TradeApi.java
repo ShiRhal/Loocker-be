@@ -24,8 +24,9 @@ public class TradeApi {
 
     @GetMapping("/id/select")
     @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
-    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto) {
-        return tradeService.findId(dto);
+    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return tradeService.findId(dto, token);
     }
 
     @PutMapping("/create")
@@ -39,11 +40,11 @@ public class TradeApi {
     @PutMapping("/update")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")
-    public void update(@RequestBody final TradeDto.TradeUpdateReq dto, @RequestHeader(value = "Authorization", required = false) String authorization) {
+    public String update(@RequestBody final TradeDto.TradeUpdateReq dto, @RequestHeader(value = "Authorization", required = false) String authorization) {
         String token = null;
         if (authorization != null && authorization.startsWith("Bearer ")) {
             token = authorization.replace("Bearer ", "");
         }
-        tradeService.update(dto, token);
+        return tradeService.update(dto, token);
     }
 }

@@ -40,7 +40,10 @@ public class TradeApi {
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")
     public void update(@RequestBody final TradeDto.TradeUpdateReq dto, @RequestHeader(value = "Authorization", required = false) String authorization) {
-        String token = authorization.replace("Bearer ", "");
+        String token = null;
+        if (authorization != null && authorization.startsWith("Bearer ")) {
+            token = authorization.replace("Bearer ", "");
+        }
         tradeService.update(dto, token);
     }
 }

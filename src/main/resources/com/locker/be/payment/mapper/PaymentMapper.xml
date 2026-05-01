@@ -9,4 +9,21 @@
             , #{PRODUCT_ID}
             , #{USER_ID}
     </insert>
+
+    <update id="paid" statementType="CALLABLE" parameterType="com.locker.be.payment.dto.PaymentDto$PaymentPaidReq">
+        EXECUTE SP_PAYMENT_PAID_UPDATE
+            #{TRADE_ID}
+            , #{AMOUNT}
+            , #{ORDER_ID}
+            , #{PAYMENT_KEY}
+            , #{USER_ID}
+            , #{SUCCESS, mode=OUT, jdbcType=BIGINT}
+    </update>
+
+    <update id="cancel" parameterType="com.locker.be.payment.dto.PaymentDto$PaymentCanceledReq">
+        EXECUTE SP_PAYMENT_CANCELED_UPDATE
+            #{TRADE_ID}
+            , #{ORDER_ID}
+            , #{USER_ID}
+    </update>
 </mapper>

@@ -26,4 +26,20 @@ public class PaymentApi {
         paymentService.create(dto, token);
     }
 
+    @PutMapping("/paid/update")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "데이터를 수정합니다.")
+    public Long paid(@RequestBody final PaymentDto.PaymentPaidReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return paymentService.paid(dto, token);
+    }
+
+    @PutMapping("/cancel/update")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "데이터를 수정합니다.")
+    public void cancel(@RequestBody final PaymentDto.PaymentCanceledReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        paymentService.cancel(dto, token);
+    }
+
 }

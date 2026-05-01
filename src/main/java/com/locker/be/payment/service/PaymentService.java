@@ -27,4 +27,30 @@ public class PaymentService {
         paymentMapper.create(params);
     }
 
+    public Long paid (PaymentDto.PaymentPaidReq dto, String token) {
+        Long userID = jwtUtil.getUserId(token);
+
+        PaymentDto.PaymentPaidReq params = PaymentDto.PaymentPaidReq.builder()
+                .TRADE_ID(dto.getTRADE_ID())
+                .AMOUNT(dto.getAMOUNT())
+                .ORDER_ID(dto.getORDER_ID())
+                .PAYMENT_KEY(dto.getPAYMENT_KEY())
+                .USER_ID(userID)
+                .build();
+
+        return paymentMapper.paid(params);
+    }
+
+    public void cancel (PaymentDto.PaymentCanceledReq dto, String token) {
+        Long userID = jwtUtil.getUserId(token);
+
+        PaymentDto.PaymentCanceledReq params = PaymentDto.PaymentCanceledReq.builder()
+                .TRADE_ID(dto.getTRADE_ID())
+                .ORDER_ID(dto.getORDER_ID())
+                .USER_ID(userID)
+                .build();
+
+        paymentMapper.cancel(params);
+    }
+
 }

@@ -23,6 +23,6 @@
             #{TRADE_ID}
             , #{USER_ID}
             , #{NEXT_STATUS_CODE}
-            , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=STRING}
+            , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}
     </update>
 </mapper>

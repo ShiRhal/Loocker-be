@@ -35,3 +35,6 @@ jwt:
 file:
   upload:
     product-path: ${PRODUCT_UPLOAD_PATH:uploads/product}
+
+kiosk:
+  allowed-code: KIOSK

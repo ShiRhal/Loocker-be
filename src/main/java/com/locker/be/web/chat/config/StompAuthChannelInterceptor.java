@@ -57,7 +57,7 @@ public class StompAuthChannelInterceptor implements ChannelInterceptor {
         // 인증 성공 시 STOMP 세션 Principal을 주입한다.
         // 이후 @MessageMapping 의 Principal 파라미터에서 userId 식별 가능.
         Long userId = jwtUtil.getUserId(token);
-        accessor.setUser(new JwtUserPrincipal(userId));
+        accessor.setUser(JwtUserPrincipal.user(userId));
         return message;
     }
 }

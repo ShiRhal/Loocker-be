@@ -18,6 +18,8 @@ public class KioskQueryDto {
         private String DETAIL_ADDRESS;
         private String KIOSK_CODE;
         private Long LOCKER_COUNT;
+
+        private String KIOSK_ACCESS_TOKEN;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

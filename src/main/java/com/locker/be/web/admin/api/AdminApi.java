@@ -2,7 +2,6 @@ package com.locker.be.web.admin.api;
 
 import com.locker.be.web.admin.dto.AdminQueryDto;
 import com.locker.be.web.admin.service.AdminService;
-import com.locker.be.web.code.dto.CodeQueryDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

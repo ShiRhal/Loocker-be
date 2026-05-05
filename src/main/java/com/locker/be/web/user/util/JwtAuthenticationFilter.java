@@ -1,4 +1,4 @@
-package com.locker.be.web.user.util;
+package com.locker.be.user.util;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -32,9 +32,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String token = authHeader.substring(7);
 
             if (jwtUtil.validateToken(token)) {
-                Long userId = jwtUtil.getUserId(token);
+                String tokenType = jwtUtil.getTokenType(token);
 
-                JwtUserPrincipal principal = new JwtUserPrincipal(userId);
+                JwtUserPrincipal principal;
+
+                if ("KIOSK".equals(tokenType)) {
+                    String kioskLoginId = jwtUtil.getKioskLoginId(token);
+                    principal = JwtUserPrincipal.kiosk(kioskLoginId);
+                } else {
+                    Long userId = jwtUtil.getUserId(token);
+                    principal = JwtUserPrincipal.user(userId);
+                }
 
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(

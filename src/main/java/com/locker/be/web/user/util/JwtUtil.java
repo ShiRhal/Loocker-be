@@ -34,6 +34,20 @@ public class JwtUtil {
         return Jwts.builder()
                 .subject(String.valueOf(userId))
                 .claim("nickname", nickname)
+                .claim("tokenType", "USER")
+                .issuedAt(now)
+                .expiration(expiry)
+                .signWith(secretKey)
+                .compact();
+    }
+
+    public String createKioskAccessToken(String loginId) {
+        Date now = new Date();
+        Date expiry = new Date(now.getTime() + accessTokenExpireMs);
+
+        return Jwts.builder()
+                .subject(loginId)
+                .claim("tokenType", "KIOSK")
                 .issuedAt(now)
                 .expiration(expiry)
                 .signWith(secretKey)
@@ -52,23 +66,29 @@ public class JwtUtil {
         }
     }
 
-    public Long getUserId(String token) {
-        Claims claims = Jwts.parser()
+    public Claims getClaims(String token) {
+        return Jwts.parser()
                 .verifyWith(secretKey)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
+    }
 
+    public String getTokenType(String token) {
+        return getClaims(token).get("tokenType", String.class);
+    }
+
+    public Long getUserId(String token) {
+        Claims claims = getClaims(token);
         return Long.parseLong(claims.getSubject());
     }
 
-    public String getNickname(String token) {
-        Claims claims = Jwts.parser()
-                .verifyWith(secretKey)
-                .build()
-                .parseSignedClaims(token)
-                .getPayload();
+    public String getKioskLoginId(String token) {
+        return getClaims(token).getSubject();
+    }
 
+    public String getNickname(String token) {
+        Claims claims = getClaims(token);
         return claims.get("nickname", String.class);
     }
 }

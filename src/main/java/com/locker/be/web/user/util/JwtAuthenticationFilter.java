@@ -1,4 +1,4 @@
-package com.locker.be.user.util;
+package com.locker.be.web.user.util;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

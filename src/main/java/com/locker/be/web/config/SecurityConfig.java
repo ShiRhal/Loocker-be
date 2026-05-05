@@ -30,12 +30,12 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/auth/google").permitAll()
-                        .requestMatchers("/ws-chat/**").permitAll()
-                        .requestMatchers("/uploads/**").permitAll()
-                        .requestMatchers("/chat/**").authenticated()
-                        .requestMatchers("/auth/me").authenticated()
-                        .requestMatchers("/uploads/**").permitAll()
+                        .requestMatchers("/web/auth/google").permitAll()
+                        .requestMatchers("/web/ws-chat/**").permitAll()
+                        .requestMatchers("/web/uploads/**").permitAll()
+                        .requestMatchers("/web/chat/**").authenticated()
+                        .requestMatchers("/web/auth/me").authenticated()
+                        .requestMatchers("/web/uploads/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

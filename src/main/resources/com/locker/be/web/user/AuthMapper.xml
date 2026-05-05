@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.web.user.mapper.AuthMapper">
+
+    <resultMap id="UserInfoMap" type="com.locker.be.web.user.dto.AuthDto$UserInfo">
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="resultCode" column="result_code"/>
+        <result property="resultMessage" column="result_message"/>
+    </resultMap>
+
+    <resultMap id="MeResMap" type="com.locker.be.web.user.dto.AuthDto$MeRes">
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+    </resultMap>
+
+    <select id="loginOrRegisterGoogle"
+            parameterType="com.locker.be.web.user.dto.AuthDto$GoogleUserUpsertParam"
+            resultMap="UserInfoMap"
+            statementType="CALLABLE">
+        EXEC dbo.SP_USER_SELECT
+             #{providerType}
+           , #{providerKey}
+           , #{nickname}
+    </select>
+
+    <select id="selectMe"
+            parameterType="long"
+            resultMap="MeResMap"
+            statementType="CALLABLE">
+        EXEC dbo.SP_AUTH_ME_SELECT
+             #{userId}
+    </select>
+
+</mapper>

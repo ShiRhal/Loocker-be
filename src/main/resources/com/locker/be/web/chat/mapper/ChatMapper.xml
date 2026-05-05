@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.web.chat.mapper.ChatMapper">
+
+    <resultMap id="ChatRoomMap" type="com.locker.be.web.chat.dto.ChatRoomDto$ChatRoom">
+        <result property="CHAT_ROOM_ID" column="chat_room_id"/>
+        <result property="PRODUCT_ID" column="product_id"/>
+        <result property="SELLER_ID" column="seller_id"/>
+        <result property="BUYER_ID" column="buyer_id"/>
+        <result property="CREATED_AT" column="created_at"/>
+    </resultMap>
+
+    <resultMap id="ChatRoomListItemMap" type="com.locker.be.web.chat.dto.ChatRoomDto$RoomListItem">
+        <result property="CHAT_ROOM_ID" column="chat_room_id"/>
+        <result property="PRODUCT_ID" column="product_id"/>
+        <result property="SELLER_ID" column="seller_id"/>
+        <result property="BUYER_ID" column="buyer_id"/>
+        <result property="TITLE" column="title"/>
+        <result property="TARGET_USER_ID" column="target_user_id"/>
+        <result property="TARGET_NICKNAME" column="target_nickname"/>
+        <result property="IMAGE_URL" column="image_url"/>
+        <result property="CREATED_AT" column="created_at"/>
+        <result property="LAST_MESSAGE" column="last_message"/>
+        <result property="LAST_MESSAGE_AT" column="last_message_at"/>
+    </resultMap>
+
+    <resultMap id="ChatMessageMap" type="com.locker.be.web.chat.dto.ChatMessageDto$ChatMessage">
+        <result property="CHAT_MESSAGE_ID" column="chat_message_id"/>
+        <result property="CHAT_ROOM_ID" column="chat_room_id"/>
+        <result property="SENDER_ID" column="sender_id"/>
+        <result property="MESSAGE" column="message"/>
+        <result property="CREATED_AT" column="created_at"/>
+    </resultMap>
+
+    <select id="selectRooms"
+            parameterType="long"
+            resultMap="ChatRoomListItemMap"
+            statementType="CALLABLE">
+        EXEC dbo.SP_CHATROOM_SELECT
+             #{userId}
+    </select>
+
+    <update id="insertRoom"
+            parameterType="com.locker.be.web.chat.dto.ChatRoomDto$RoomInsertParam"
+            statementType="CALLABLE">
+        EXEC dbo.SP_CHATROOM_INSERT
+             #{PRODUCT_ID}
+           , #{USER_ID}
+           , #{NEW_ID, mode=OUT, jdbcType=BIGINT}
+    </update>
+
+    <update id="exitRoom"
+            parameterType="com.locker.be.web.chat.dto.ChatRoomDto$RoomExitParam"
+            statementType="CALLABLE">
+        EXEC dbo.SP_CHATROOM_EXIT
+             #{CHAT_ROOM_ID}
+           , #{USER_ID}
+    </update>
+
+    <select id="selectMessages"
+            parameterType="com.locker.be.web.chat.dto.ChatMessageDto$MessageSelectParam"
+            resultMap="ChatMessageMap"
+            statementType="CALLABLE">
+        EXEC dbo.SP_CHATMESSAGE_SELECT
+             #{CHAT_ROOM_ID}
+           , #{USER_ID}
+           , #{LAST_CHAT_MESSAGE_ID}
+           , #{PAGE_SIZE}
+    </select>
+
+    <update id="insertMessage"
+            parameterType="com.locker.be.web.chat.dto.ChatMessageDto$MessageInsertParam"
+            statementType="CALLABLE">
+        EXEC dbo.SP_CHATMESSAGE_INSERT
+             #{CHAT_ROOM_ID}
+           , #{SENDER_ID}
+           , #{MESSAGE}
+    </update>
+
+</mapper>

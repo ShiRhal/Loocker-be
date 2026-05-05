@@ -1,5 +1,6 @@
 package com.locker.be.web.chat.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,7 @@ public final class ChatMessageDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class SendReq {
+        @JsonProperty("MESSAGE")
         private String MESSAGE;
     }
 

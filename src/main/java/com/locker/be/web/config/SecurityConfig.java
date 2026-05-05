@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/web/auth/google").permitAll()
-                        .requestMatchers("/web/ws-chat/**").permitAll()
+                        .requestMatchers("/ws/web/chat/**").permitAll()
                         .requestMatchers("/web/uploads/**").permitAll()
                         .requestMatchers("/web/chat/**").authenticated()
                         .requestMatchers("/web/auth/me").authenticated()

@@ -1,12 +1,13 @@
 package com.locker.be.web.chat.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -19,12 +20,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // 서버 -> 클라이언트 브로드캐스트용 prefix
-        // 예: /topic/chat.{roomId}
-        config.enableSimpleBroker("/topic");
+        // 예: /topic/web/chat.{roomId}
+        config.enableSimpleBroker("/topic/web");
 
         // 클라이언트 -> 서버 전송용 prefix
-        // 예: /app/chat/{roomId}/send (@MessageMapping 과 매핑)
-        config.setApplicationDestinationPrefixes("/app");
+        // 예: /app/web/chat/{roomId}/send (@MessageMapping 과 매핑)
+        config.setApplicationDestinationPrefixes("/app/web");
     }
 
     @Override
@@ -32,7 +33,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // WebSocket 최초 핸드셰이크 엔드포인트
         // 프론트는 SockJS를 사용하므로 withSockJS()를 활성화한다.
         // CORS는 개발 환경 FE 주소만 허용한다.
-        registry.addEndpoint("/ws-chat")
+        registry.addEndpoint("/ws/web/chat")
                 .setAllowedOriginPatterns("http://localhost:5173", "http://127.0.0.1:5173")
                 .withSockJS();
     }

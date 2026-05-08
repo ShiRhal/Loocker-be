@@ -34,3 +34,7 @@ file:
 
 kiosk:
   allowed-code: ${VERIFY_CODE}
+
+logging:
+  file:
+    name: logs/loocker-be.log

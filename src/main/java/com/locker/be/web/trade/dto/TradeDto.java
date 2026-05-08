@@ -42,18 +42,21 @@ public class TradeDto {
         private Long USER_ID;
         private String NEXT_STATUS_CODE;
         private String RESULT_STATUS_CODE;
+        private String TRADE_TYPE_CODE;
 
         @Builder
         public TradeUpdateReq (
                 Long TRADE_ID,
                 Long USER_ID,
                 String NEXT_STATUS_CODE,
-                String RESULT_STATUS_CODE
+                String RESULT_STATUS_CODE,
+                String TRADE_TYPE_CODE
         ) {
             this.TRADE_ID = TRADE_ID;
             this.USER_ID = USER_ID;
             this.NEXT_STATUS_CODE = NEXT_STATUS_CODE;
             this.RESULT_STATUS_CODE = RESULT_STATUS_CODE;
+            this.TRADE_TYPE_CODE = TRADE_TYPE_CODE;
         }
     }
 }

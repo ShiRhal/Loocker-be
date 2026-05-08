@@ -17,6 +17,7 @@ public class TradeService {
 
     private final TradeMapper tradeMapper;
     private final JwtUtil jwtUtil;
+    private final TradeDeliveryDemoService tradeDeliveryDemoService;
 
     public Long create (TradeDto.TradeCreateReq dto, String token) {
         Long userID = jwtUtil.getUserId(token);
@@ -42,8 +43,14 @@ public class TradeService {
                 .TRADE_ID(dto.getTRADE_ID())
                 .USER_ID(userID)
                 .NEXT_STATUS_CODE(dto.getNEXT_STATUS_CODE())
+                //.TRADE_TYPE_CODE(dto.getTRADE_TYPE_CODE())
                 .build();
         tradeMapper.update(params);
+//        String resultStatusCode = params.getRESULT_STATUS_CODE();
+//        if ("DELIVERY".equals(params.getTRADE_TYPE_CODE()) && ("PAID".equals(resultStatusCode))) {
+//            tradeDeliveryDemoService.start(params.getTRADE_ID());
+//        }
+//        return resultStatusCode;
         return params.getRESULT_STATUS_CODE();
     }
 

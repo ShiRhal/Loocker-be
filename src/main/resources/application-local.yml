@@ -38,3 +38,7 @@ file:
 
 kiosk:
   allowed-code: KIOSK
+
+logging:
+  file:
+    name: logs/loocker-be.log

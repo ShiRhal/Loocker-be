@@ -52,7 +52,7 @@ public class TradeDeliveryDemoService {
                         .TRADE_ID(tradeId)
                         .USER_ID(null)
                         .NEXT_STATUS_CODE(nextStatusCode)
-                        // .TRADE_TYPE_CODE("DELIVERY")
+                         .TRADE_TYPE_CODE("DELIVERY")
                         .build();
                 tradeMapper.update(params);
                 log.info(

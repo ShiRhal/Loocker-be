@@ -66,6 +66,6 @@ public class TradeDeliveryDemoService {
                 runningTradeIds.remove(tradeId);
                 log.error("택배 자동 상태 변경 실패. tradeId={}", tradeId, e);
             }
-        }, Instant.now().plusSeconds(10));
+        }, Instant.now().plusSeconds(5));
     }
 }

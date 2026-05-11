@@ -3,7 +3,13 @@
 
 <mapper namespace="com.locker.be.web.trade.mapper.TradeMapper">
 
-    <select id="findId" resultType="com.locker.be.web.trade.dto.TradeQueryDto$TradeRes" parameterType="com.locker.be.web.trade.dto.TradeQueryDto$TradeReq">
+    <select id="findId" resultType="com.locker.be.web.trade.dto.TradeQueryDto$TradeIdRes" parameterType="com.locker.be.web.trade.dto.TradeQueryDto$TradeIdReq">
+        EXECUTE SP_TRADE_ID_SELECT
+            #{PRODUCT_ID}
+            , #{USER_ID}
+    </select>
+
+    <select id="findAll" resultType="com.locker.be.web.trade.dto.TradeQueryDto$TradeRes" parameterType="com.locker.be.web.trade.dto.TradeQueryDto$TradeReq">
         EXECUTE SP_TRADE_SELECT
             #{PRODUCT_ID}
             , #{USER_ID}

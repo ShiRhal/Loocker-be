@@ -23,9 +23,16 @@ public class TradeApi {
 
     @GetMapping("/id/select")
     @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
-    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto, @RequestHeader("Authorization") String authorization) {
+    public Collection<TradeQueryDto.TradeIdRes> findId(TradeQueryDto.TradeIdReq dto, @RequestHeader("Authorization") String authorization) {
         String token = authorization.replace("Bearer ", "");
         return tradeService.findId(dto, token);
+    }
+
+    @GetMapping("/select")
+    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    public Collection<TradeQueryDto.TradeRes> findAll(TradeQueryDto.TradeReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return tradeService.findAll(dto, token);
     }
 
     @PutMapping("/create")

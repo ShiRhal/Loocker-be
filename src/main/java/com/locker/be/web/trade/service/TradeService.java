@@ -54,12 +54,22 @@ public class TradeService {
     }
 
     // @Transactional(readOnly = true)
-    public Collection<TradeQueryDto.TradeRes> findId(TradeQueryDto.TradeReq dto, String token) {
+    public Collection<TradeQueryDto.TradeIdRes> findId(TradeQueryDto.TradeIdReq dto, String token) {
+        Long userID = jwtUtil.getUserId(token);
+        TradeQueryDto.TradeIdReq params = TradeQueryDto.TradeIdReq.builder()
+                .PRODUCT_ID(dto.getPRODUCT_ID())
+                .USER_ID(userID)
+                .build();
+        return tradeMapper.findId(params);
+    }
+
+    // @Transactional(readOnly = true)
+    public Collection<TradeQueryDto.TradeRes> findAll(TradeQueryDto.TradeReq dto, String token) {
         Long userID = jwtUtil.getUserId(token);
         TradeQueryDto.TradeReq params = TradeQueryDto.TradeReq.builder()
                 .PRODUCT_ID(dto.getPRODUCT_ID())
                 .USER_ID(userID)
                 .build();
-        return tradeMapper.findId(params);
+        return tradeMapper.findAll(params);
     }
 }

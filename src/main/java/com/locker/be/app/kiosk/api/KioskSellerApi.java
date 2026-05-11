@@ -1,0 +1,39 @@
+package com.locker.be.app.kiosk.api;
+
+import com.locker.be.app.kiosk.dto.KioskSellerQueryDto;
+import com.locker.be.app.kiosk.service.KioskSellerService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+
+@Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("kiosk/seller")
+@Tag(name = "보관함 판매자 API", description = "보관함 판매자를 위한 api 입니다.")
+public class KioskSellerApi {
+
+    private final KioskSellerService kioskSellerService;
+
+    @GetMapping("/locker")
+    @Operation(summary = "비어있는 보관함 리스트 반환.")
+    public Collection<KioskSellerQueryDto.KioskLockerRes> lockerList(KioskSellerQueryDto.KioskLockerReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return kioskSellerService.lockerList(dto, token);
+    }
+
+    @GetMapping("/product")
+    @Operation(summary = "보관함 판매글 리스트 반환.")
+    public Collection<KioskSellerQueryDto.KioskProductRes> productList(KioskSellerQueryDto.KioskProductReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return kioskSellerService.productList(dto, token);
+    }
+
+}

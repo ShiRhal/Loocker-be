@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.app.kiosk.mapper.KioskSellerMapper">
+
+    <select id="lockerList" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerReq">
+        EXECUTE SP_KIOSK_SELLER_LOCKER_SELECT
+            #{USER_ID}
+            , #{PRODUCT_ID}
+            , #{KIOSK_CODE}
+    </select>
+
+    <select id="productList" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductReq">
+        EXECUTE SP_KIOSK_SELLER_PRODUCT_SELECT
+            #{USER_ID}
+            , #{KIOSK_CODE}
+    </select>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.web.trade.mapper.TradeLockerLocationMapper">
+
+    <select id="findAll" resultType="com.locker.be.web.trade.dto.TradeLockerLocationQueryDto$TradeLockerLocationRes">
+        EXECUTE SP_TRADE_LOCKER_LOCATION_LIST_SELECT
+    </select>
+
+    <select id="findSelect" resultType="com.locker.be.web.trade.dto.TradeLockerLocationQueryDto$TradeLockerLocationRes" parameterType="com.locker.be.web.trade.dto.TradeLockerLocationQueryDto$TradeLockerLocationReq">
+        EXECUTE SP_TRADE_LOCKER_LOCATION_SELECT
+            #{TRADE_ID}
+            , #{USER_ID}
+    </select>
+
+    <select id="create" resultType="com.locker.be.web.trade.dto.TradeLockerLocationQueryDto$TradeLockerLocationRes" parameterType="com.locker.be.web.trade.dto.TradeLockerLocationDto$TradeLockerLocationCreateReq">
+        EXECUTE SP_TRADE_LOCKER_LOCATION_INSERT
+            #{TRADE_ID}
+            , #{KIOSK_ID}
+            , #{USER_ID}
+    </select>
+
+    <select id="update" resultType="com.locker.be.web.trade.dto.TradeLockerLocationQueryDto$TradeLockerLocationRes" parameterType="com.locker.be.web.trade.dto.TradeLockerLocationDto$TradeLockerLocationUpdateReq">
+        EXECUTE SP_TRADE_LOCKER_LOCATION_UPDATE
+            #{TRADE_ID}
+            , #{KIOSK_ID}
+            , #{USER_ID}
+    </select>
+
+    <delete id="delete" parameterType="com.locker.be.web.trade.dto.TradeLockerLocationDto$TradeLockerLocationDeleteReq">
+        EXECUTE SP_TRADE_LOCKER_LOCATION_DELETE
+            #{TRADE_ID}
+            , #{USER_ID}
+    </delete>
+</mapper>

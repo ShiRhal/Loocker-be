@@ -29,5 +29,7 @@ public interface UserMapper {
 
     public Collection<UserQueryDto.UserReviewRes> findReview(UserQueryDto.UserInfoReq dto);
 
+    public Collection<UserQueryDto.UserTradeRes> findTrade(UserQueryDto.UserInfoReq dto);
+
     public UserQueryDto.UserRes findUser(UserQueryDto.UserInfoReq dto);
 }

@@ -71,6 +71,12 @@ public class UserService {
     }
 
     // @Transactional(readOnly = true)
+    public Collection<UserQueryDto.UserTradeRes> findTrade(UserQueryDto.UserInfoReq dto) {
+
+        return userMapper.findTrade(dto);
+    }
+
+    // @Transactional(readOnly = true)
     public UserQueryDto.UserRes findUser(UserQueryDto.UserInfoReq dto) {
 
         return userMapper.findUser(dto);

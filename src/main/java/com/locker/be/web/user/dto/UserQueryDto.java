@@ -21,6 +21,7 @@ public class UserQueryDto {
         private Collection<UserSaleRes> SALELIST;
         private Collection<UserBuyRes> BUYLIST;
         private Collection<UserReviewRes> REVIEW;
+        private Collection<UserTradeRes> TRADE;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
@@ -128,6 +129,26 @@ public class UserQueryDto {
         private String CONTENT;
         private String CREATED_AT;
         private String REVIEW_TYPE;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class UserTradeRes {
+        private Long TRADE_ID;
+        private Long PRODUCT_ID;
+        private String TITLE;
+        private String IMAGE_URL;
+        private Long BASE_PRICE;
+        private String SELLER_NICKNAME;
+        private String CREATED_AT;
+        private Long VIEW_COUNT;
+        private Long CHAT_COUNT;
+        private Long WISH_COUNT;
+        private String TRADE_TYPE_CODE;
+        private String STATUS_CODE;
+        private String MY_ROLE;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.locker.be.CustomUpperSnakeCaseStrategy;
 import lombok.*;
 
-public class TradeLockerLocationDto {
+public class TradeLockerDto {
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)
     @Setter

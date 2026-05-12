@@ -113,6 +113,7 @@ public class ProductQueryDto {
         private String TRADE_TYPE;
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
+        private Boolean IS_WISHED;
         private Collection<ProductImageQueryDto.ProductImageRes> IMAGE;
     }
 
@@ -122,12 +123,15 @@ public class ProductQueryDto {
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductDetailReq {
         private Long PRODUCT_ID;
+        private Long USER_ID;
 
         @Builder
         public ProductDetailReq (
-                Long PRODUCT_ID
+                Long PRODUCT_ID,
+                Long USER_ID
         ) {
             this.PRODUCT_ID = PRODUCT_ID;
+            this.USER_ID = USER_ID;
         }
     }
 }

@@ -19,6 +19,7 @@
     <select id="findOne" parameterType="com.locker.be.web.product.dto.ProductQueryDto$ProductDetailReq" resultType="com.locker.be.web.product.dto.ProductQueryDto$ProductDetailRes">
         EXECUTE SP_PRODUCT_DETAIL_SELECT
             #{PRODUCT_ID}
+            ,#{USER_ID}
     </select>
 
     <select id="findAll" parameterType="com.locker.be.web.product.dto.ProductQueryDto$ProductReq" resultType="com.locker.be.web.product.dto.ProductQueryDto$ProductRes">

@@ -31,6 +31,7 @@ public class ProductQueryDto {
         private String LOCKER_BADGE;
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
+        private Boolean IS_WISHED;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

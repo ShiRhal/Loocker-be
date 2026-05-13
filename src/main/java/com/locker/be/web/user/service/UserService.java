@@ -94,6 +94,7 @@ public class UserService {
         res.setSALELIST(findSale(dto));
         res.setBUYLIST(findBuy(dto));
         res.setREVIEW(findReview(dto));
+        res.setTRADE(findTrade(dto));
         return res;
     }
 }

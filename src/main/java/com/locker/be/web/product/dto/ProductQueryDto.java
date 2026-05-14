@@ -32,6 +32,7 @@ public class ProductQueryDto {
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
         private Boolean IS_WISHED;
+        private String  STATUS_CODE;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

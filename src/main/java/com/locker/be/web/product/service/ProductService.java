@@ -37,11 +37,9 @@ public class ProductService {
         Long productId = dto.getPRODUCT_ID();
         // 게시글 업데이트
         productMapper.update(dto);
-        ProductImageQueryDto.ProductPriImageReq imagePriDto = new ProductImageQueryDto.ProductPriImageReq();
         ProductImageDto.ProductImageDeleteReq imageDeleteDto = new ProductImageDto.ProductImageDeleteReq();
-        imagePriDto.setPRODUCT_ID(productId);
         imageDeleteDto.setPRODUCT_ID(productId);
-        productImageService.deleteForUpdate(imageDeleteDto, imagePriDto);
+        productImageService.delete(imageDeleteDto);
         // 이미지 신규 저장
         ProductImageDto.ProductImageCreateReq imageDto = new ProductImageDto.ProductImageCreateReq();
         imageDto.setPRODUCT_ID(productId);

@@ -89,55 +89,6 @@ public class ProductImageService {
         }
         return fileName.substring(fileName.lastIndexOf("."));
     }
-    // 대표 이미지 제외 이미지 삭제
-    public void deleteForUpdate(ProductImageDto.ProductImageDeleteReq deleteDto, ProductImageQueryDto.ProductPriImageReq priDto) {
-        Long productId = deleteDto.getPRODUCT_ID();
-
-        // DB에서 대표 이미지 URL 또는 파일명 조회
-        String mainImageUrl = productImageMapper.findPri(priDto);
-        String mainFileName = extractFileName(mainImageUrl);
-
-        File dir = new File(uploadPath, String.valueOf(productId));
-        deleteFilesExceptMain(dir, mainFileName);
-
-        // DB에서도 대표이미지 제외하고 삭제
-        // mapper 연결 주석 처리 -> 게시글 수정 쿼리 안에서 sp 호출
-        // productImageMapper.deleteForUpdate(deleteDto);
-    }
-    // 대표 이미지 추출
-    private String extractFileName(String imageUrl) {
-        if (imageUrl == null || imageUrl.isBlank()) {
-            return null;
-        }
-        int idx = imageUrl.lastIndexOf("/");
-        return (idx >= 0) ? imageUrl.substring(idx + 1) : imageUrl;
-    }
-    // 대표이미지 제외 이미지 삭제
-    private void deleteFilesExceptMain(File dir, String mainFileName) {
-        if (dir == null || !dir.exists()) {
-            return;
-        }
-        File[] files = dir.listFiles();
-        if (files == null) {
-            return;
-        }
-        for (File file : files) {
-            if (file.isDirectory()) {
-                deleteFilesExceptMain(file, mainFileName);
-                File[] innerFiles = file.listFiles();
-                if (innerFiles == null || innerFiles.length == 0) {
-                    file.delete();
-                }
-            } else {
-                if (mainFileName != null && file.getName().equals(mainFileName)) {
-                    continue; // 대표이미지는 삭제 안 함
-                }
-                if (!file.delete()) {
-                    throw new RuntimeException("파일 삭제 실패: " + file.getAbsolutePath());
-                }
-            }
-        }
-    }
 
     // 이미지 전체삭제
     public void delete(ProductImageDto.ProductImageDeleteReq dto) {

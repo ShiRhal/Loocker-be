@@ -32,19 +32,16 @@ public class ProductService {
         return productId;
     }
 
+    @Transactional
     public void update(ProductDto.ProductDetailUpdateReq dto) {
         Long productId = dto.getPRODUCT_ID();
-
-        // 이미지 전체 삭제 [대표이미지 제외]
+        // 게시글 업데이트
+        productMapper.update(dto);
         ProductImageQueryDto.ProductPriImageReq imagePriDto = new ProductImageQueryDto.ProductPriImageReq();
         ProductImageDto.ProductImageDeleteReq imageDeleteDto = new ProductImageDto.ProductImageDeleteReq();
         imagePriDto.setPRODUCT_ID(productId);
         imageDeleteDto.setPRODUCT_ID(productId);
         productImageService.deleteForUpdate(imageDeleteDto, imagePriDto);
-
-        // 게시글 업데이트
-        productMapper.update(dto);
-
         // 이미지 신규 저장
         ProductImageDto.ProductImageCreateReq imageDto = new ProductImageDto.ProductImageCreateReq();
         imageDto.setPRODUCT_ID(productId);
@@ -52,11 +49,12 @@ public class ProductService {
         productImageService.saveImages(imageDto);
     }
 
+    @Transactional
     public void delete(ProductDto.ProductDetailDeleteReq dto) {
+        productMapper.delete(dto);
         ProductImageDto.ProductImageDeleteReq imageDeleteReq = new ProductImageDto.ProductImageDeleteReq();
         imageDeleteReq.setPRODUCT_ID(dto.getPRODUCT_ID());
         productImageService.delete(imageDeleteReq);
-        productMapper.delete(dto);
     }
 
     // @Transactional(readOnly = true)

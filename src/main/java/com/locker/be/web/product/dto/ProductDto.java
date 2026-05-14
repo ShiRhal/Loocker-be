@@ -87,6 +87,7 @@ public class ProductDto {
         private String SUB_CATEGORY;
         private String TRADE_TYPE;
         private MultipartFile[] files;
+        private Long USER_ID;
 
         @Builder
         public ProductDetailUpdateReq (
@@ -98,7 +99,8 @@ public class ProductDto {
                 String CITY,
                 String SUB_CATEGORY,
                 String TRADE_TYPE,
-                MultipartFile[] files
+                MultipartFile[] files,
+                Long USER_ID
         ) {
             this.PRODUCT_ID = PRODUCT_ID;
             this.TITLE = TITLE;
@@ -109,6 +111,7 @@ public class ProductDto {
             this.SUB_CATEGORY = SUB_CATEGORY;
             this.TRADE_TYPE = TRADE_TYPE;
             this.files = files;
+            this.USER_ID = USER_ID;
         }
     }
 
@@ -118,12 +121,15 @@ public class ProductDto {
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class ProductDetailDeleteReq {
         private Long PRODUCT_ID;
+        private Long USER_ID;
 
         @Builder
         public ProductDetailDeleteReq (
-                Long PRODUCT_ID
+                Long PRODUCT_ID,
+                Long USER_ID
         ) {
             this.PRODUCT_ID = PRODUCT_ID;
+            this.USER_ID = USER_ID;
         }
     }
 }

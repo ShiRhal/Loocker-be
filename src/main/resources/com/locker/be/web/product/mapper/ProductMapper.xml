@@ -50,4 +50,23 @@
             ,#{DS_STATE}
             ,#{DS_CITY}
     </select>
+
+    <delete id="delete" parameterType="com.locker.be.web.product.dto.ProductDto$ProductDetailDeleteReq">
+        EXECUTE SP_PRODUCT_DETAIL_DELETE
+            #{PRODUCT_ID}
+            ,#{USER_ID}
+    </delete>
+
+    <update id="update" parameterType="com.locker.be.web.product.dto.ProductDto$ProductDetailUpdateReq">
+        EXECUTE SP_PRODUCT_DETAIL_UPDATE
+            #{PRODUCT_ID}
+            ,#{TITLE}
+            ,#{DESCRIPTION}
+            ,#{BASE_PRICE}
+            ,#{ACCESSORY_STATUS}
+            ,#{CITY}
+            ,#{SUB_CATEGORY}
+            ,#{TRADE_TYPE}
+            ,#{USER_ID}
+    </update>
 </mapper>

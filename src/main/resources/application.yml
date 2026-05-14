@@ -3,3 +3,13 @@ spring:
     name: be
   profiles:
     active: local
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 220MB
+
+server:
+  tomcat:
+    max-http-form-post-size: 220MB
+    max-swallow-size: 220MB

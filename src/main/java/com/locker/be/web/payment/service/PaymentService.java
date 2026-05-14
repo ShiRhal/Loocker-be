@@ -38,7 +38,8 @@ public class PaymentService {
                 .USER_ID(userID)
                 .build();
 
-        return paymentMapper.paid(params);
+        paymentMapper.paid(params);
+        return params.getSUCCESS();
     }
 
     public void cancel (PaymentDto.PaymentCanceledReq dto, String token) {

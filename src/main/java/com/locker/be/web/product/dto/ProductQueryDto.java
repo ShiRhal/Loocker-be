@@ -116,6 +116,7 @@ public class ProductQueryDto {
         private Long WISH_COUNT;
         private Long CHAT_COUNT;
         private Boolean IS_WISHED;
+        private Long SELLER_ID;
         private Collection<ProductImageQueryDto.ProductImageRes> IMAGE;
     }
 

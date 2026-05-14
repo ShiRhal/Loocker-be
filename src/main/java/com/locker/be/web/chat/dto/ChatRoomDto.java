@@ -1,6 +1,8 @@
 package com.locker.be.web.chat.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,7 +49,10 @@ public final class ChatRoomDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class RoomInsertReq {
-        private Long PRODUCT_ID;
+        /** JSON의 PRODUCT_ID·productId 등이 Lombok productId 필드로 역직렬화되도록 명시 */
+        @JsonProperty("PRODUCT_ID")
+        @JsonAlias({ "productId", "product_id" })
+        private Long productId;
     }
 
     @Data

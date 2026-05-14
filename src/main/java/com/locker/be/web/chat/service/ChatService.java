@@ -23,11 +23,11 @@ public class ChatService {
     }
 
     public ChatRoomDto.ChatRoom createOrGetRoom(long userId, ChatRoomDto.RoomInsertReq req) {
-        if (req == null || req.getPRODUCT_ID() == null) {
+        if (req == null || req.getProductId() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "productId is required");
         }
 
-        ChatRoomDto.RoomInsertParam param = new ChatRoomDto.RoomInsertParam(req.getPRODUCT_ID(), userId, null);
+        ChatRoomDto.RoomInsertParam param = new ChatRoomDto.RoomInsertParam(req.getProductId(), userId, null);
         chatMapper.insertRoom(param);
         if (param.getNEW_ID() == null) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to create or load chat room");

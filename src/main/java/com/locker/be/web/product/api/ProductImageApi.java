@@ -35,13 +35,6 @@ public class ProductImageApi {
         productImageService.delete(dto);
     }
 
-    @PutMapping("/image/delete/for/update")
-    @ResponseStatus(value = HttpStatus.OK)
-    @Operation(summary = "기존 데이터를 삭제 후 재등록 합니다.")
-    public void update(@RequestBody final ProductImageDto.ProductImageDeleteReq deleteDto, ProductImageQueryDto.ProductPriImageReq priDto) {
-        productImageService.deleteForUpdate(deleteDto, priDto);
-    }
-
     @GetMapping("/image/select")
     @Operation(summary = "검색조건에 따른 상품 이미지에 대한 데이터를 반환합니다.")
     public Collection<ProductImageQueryDto.ProductImageRes> findAll(@ModelAttribute final ProductImageQueryDto.ProductImageReq dto) {

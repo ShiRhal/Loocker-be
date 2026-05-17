@@ -33,5 +33,4 @@ build/
 .vscode/
 
 .env
-logs/loocker-be.log
-logs/loocker-be.log.2026-05-14.0.gz
+logs/

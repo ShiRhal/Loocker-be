@@ -17,6 +17,7 @@ public class TradeLockerQueryDto {
         private String DETAIL_ADDRESS;
         private String BRANCH_NAME;
         private String STATUS_CODE;
+        private String LOCATION_IMG;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

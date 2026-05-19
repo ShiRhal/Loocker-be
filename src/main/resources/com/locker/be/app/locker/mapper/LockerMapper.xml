@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.app.locker.mapper.LockerMapper">
+
+    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerCreateReq">
+        EXECUTE SP_LOCKER_INSERT
+            #{TRADE_ID}
+            , #{USER_ID}
+            , #{LOCKER_ID}
+            , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}
+    </insert>
+
+    <update id="update" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerUpdateReq">
+        EXECUTE SP_LOCKER_UPDATE
+            #{TRADE_ID}
+            , #{USER_ID}
+            , #{NEXT_STATUS}
+            , #{ROLE_TYPE}
+            , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}
+    </update>
+</mapper>

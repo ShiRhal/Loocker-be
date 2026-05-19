@@ -3,14 +3,14 @@
 
 <mapper namespace="com.locker.be.app.kiosk.mapper.KioskSellerMapper">
 
-    <select id="lockerList" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerReq">
+    <select id="lockerListSeller" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskLockerReq">
         EXECUTE SP_KIOSK_SELLER_LOCKER_SELECT
             #{USER_ID}
             , #{PRODUCT_ID}
             , #{KIOSK_CODE}
     </select>
 
-    <select id="productList" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductReq">
+    <select id="productListSeller" resultType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductRes" parameterType="com.locker.be.app.kiosk.dto.KioskSellerQueryDto$KioskProductReq">
         EXECUTE SP_KIOSK_SELLER_PRODUCT_SELECT
             #{USER_ID}
             , #{KIOSK_CODE}

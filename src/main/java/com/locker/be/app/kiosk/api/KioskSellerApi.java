@@ -24,16 +24,16 @@ public class KioskSellerApi {
 
     @GetMapping("/locker")
     @Operation(summary = "비어있는 보관함 리스트 반환.")
-    public Collection<KioskSellerQueryDto.KioskLockerRes> lockerList(KioskSellerQueryDto.KioskLockerReq dto, @RequestHeader("Authorization") String authorization) {
+    public Collection<KioskSellerQueryDto.KioskLockerRes> lockerListSeller(KioskSellerQueryDto.KioskLockerReq dto, @RequestHeader("Authorization") String authorization) {
         String token = authorization.replace("Bearer ", "");
-        return kioskSellerService.lockerList(dto, token);
+        return kioskSellerService.lockerListSeller(dto, token);
     }
 
     @GetMapping("/product")
     @Operation(summary = "보관함 판매글 리스트 반환.")
-    public Collection<KioskSellerQueryDto.KioskProductRes> productList(KioskSellerQueryDto.KioskProductReq dto, @RequestHeader("Authorization") String authorization) {
+    public Collection<KioskSellerQueryDto.KioskProductRes> productListSeller(KioskSellerQueryDto.KioskProductReq dto, @RequestHeader("Authorization") String authorization) {
         String token = authorization.replace("Bearer ", "");
-        return kioskSellerService.productList(dto, token);
+        return kioskSellerService.productListSeller(dto, token);
     }
 
 }

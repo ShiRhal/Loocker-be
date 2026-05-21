@@ -21,16 +21,14 @@ public class LockerApi {
     @PutMapping("/create")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")
-    public String create(@RequestBody final LockerDto.LockerCreateReq dto, @RequestHeader("Authorization") String authorization) {
-        String token = authorization.replace("Bearer ", "");
-        return lockerService.create(dto, token);
+    public String create(@RequestBody final LockerDto.LockerCreateReq dto) {
+        return lockerService.create(dto);
     }
 
     @PutMapping("/update")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")
-    public String update(@RequestBody final LockerDto.LockerUpdateReq dto, @RequestHeader(value = "Authorization") String authorization) {
-        String token = authorization.replace("Bearer ", "");
-        return lockerService.update(dto, token);
+    public String update(@RequestBody final LockerDto.LockerUpdateReq dto) {
+        return lockerService.update(dto);
     }
 }

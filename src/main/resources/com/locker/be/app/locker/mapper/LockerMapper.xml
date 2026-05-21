@@ -6,7 +6,7 @@
     <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerCreateReq">
         EXECUTE SP_LOCKER_INSERT
             #{TRADE_ID}
-            , #{USER_ID}
+            , #{AUTH_CODE}
             , #{LOCKER_ID}
             , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}
     </insert>
@@ -14,7 +14,7 @@
     <update id="update" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerUpdateReq">
         EXECUTE SP_LOCKER_UPDATE
             #{TRADE_ID}
-            , #{USER_ID}
+            , #{AUTH_CODE}
             , #{NEXT_STATUS}
             , #{ROLE_TYPE}
             , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.app.kiosk.mapper.KioskAuthMapper">
+
+    <select id="findAuth" resultType="com.locker.be.app.kiosk.dto.KioskAuthQueryDto$KioskAuthRes" parameterType="com.locker.be.app.kiosk.dto.KioskAuthQueryDto$KioskAuthReq">
+        EXECUTE SP_KIOSK_AUTH_SESSION_SELECT
+            #{AUTH_CODE}
+            , #{KIOSK_CODE}
+    </select>
+
+    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.app.kiosk.dto.KioskAuthDto$KioskAuthCreateReq">
+        EXECUTE SP_KIOSK_AUTH_SESSION_INSERT
+            #{KIOSK_ID}
+            , #{KIOSK_CODE}
+            , #{AUTH_TYPE_CODE}
+            , #{AUTH_CODE, mode=OUT, jdbcType=VARCHAR}
+    </insert>
+
+    <update id="update" parameterType="com.locker.be.app.kiosk.dto.KioskAuthDto$KioskAuthUpdateReq">
+        EXECUTE SP_KIOSK_AUTH_SESSION_UPDATE
+            #{AUTH_CODE}
+            , #{USER_ID}
+    </update>
+</mapper>

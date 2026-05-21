@@ -20,15 +20,18 @@ public class KioskBuyerQueryDto {
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskLockerReq {
         private Long TRADE_ID;
-        private Long USER_ID;
+        private String AUTH_CODE;
+        private String KIOSK_CODE;
 
         @Builder
         public KioskLockerReq(
                 Long TRADE_ID,
-                Long USER_ID
+                String AUTH_CODE,
+                String KIOSK_CODE
         ) {
             this.TRADE_ID = TRADE_ID;
-            this.USER_ID = USER_ID;
+            this.AUTH_CODE = AUTH_CODE;
+            this.KIOSK_CODE = KIOSK_CODE;
         }
     }
 
@@ -55,15 +58,15 @@ public class KioskBuyerQueryDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskProductReq {
-        private Long USER_ID;
+        private String AUTH_CODE;
         private String KIOSK_CODE;
 
         @Builder
         public KioskProductReq(
-                Long USER_ID,
+                String AUTH_CODE,
                 String KIOSK_CODE
         ) {
-            this.USER_ID = USER_ID;
+            this.AUTH_CODE = AUTH_CODE;
             this.KIOSK_CODE = KIOSK_CODE;
         }
     }

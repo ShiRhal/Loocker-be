@@ -6,12 +6,13 @@
     <select id="lockerListBuyer" resultType="com.locker.be.app.kiosk.dto.KioskBuyerQueryDto$KioskLockerRes" parameterType="com.locker.be.app.kiosk.dto.KioskBuyerQueryDto$KioskLockerReq">
         EXECUTE SP_KIOSK_BUYER_LOCKER_SELECT
             #{TRADE_ID}
-            , #{USER_ID}
+            , #{AUTH_CODE}
+            , #{KIOSK_CODE}
     </select>
 
     <select id="productListBuyer" resultType="com.locker.be.app.kiosk.dto.KioskBuyerQueryDto$KioskProductRes" parameterType="com.locker.be.app.kiosk.dto.KioskBuyerQueryDto$KioskProductReq">
         EXECUTE SP_KIOSK_BUYER_PRODUCT_SELECT
-            #{USER_ID}
+            #{AUTH_CODE}
             , #{KIOSK_CODE}
     </select>
 </mapper>

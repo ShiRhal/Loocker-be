@@ -11,12 +11,7 @@ public class KioskAuthQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskAuthRes {
-        private String KIOSK_AUTH_SESSION_ID;
         private String AUTH_CODE;
-        private String KIOSK_ID;
-        private String KIOSK_CODE;
-        private String USER_ID;
-        private String USER_NICKNAME;
         private String AUTH_STATUS_CODE;
         private String AUTH_RESULT_TIME;
         private String AUTH_TYPE_CODE;

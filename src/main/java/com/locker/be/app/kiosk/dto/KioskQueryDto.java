@@ -11,6 +11,7 @@ public class KioskQueryDto {
     @Setter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskInfoRes {
+        private Long KIOSK_ID;
         private String LOGIN_ID;
         private String STATE;
         private String CITY;

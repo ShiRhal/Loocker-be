@@ -18,13 +18,6 @@ public class LockerApi {
 
     private final LockerService lockerService;
 
-    @PutMapping("/create")
-    @ResponseStatus(value = HttpStatus.OK)
-    @Operation(summary = "데이터를 입력합니다.")
-    public String create(@RequestBody final LockerDto.LockerCreateReq dto) {
-        return lockerService.create(dto);
-    }
-
     @PutMapping("/update")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")

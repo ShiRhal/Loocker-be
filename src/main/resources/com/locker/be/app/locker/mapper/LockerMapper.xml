@@ -3,14 +3,6 @@
 
 <mapper namespace="com.locker.be.app.locker.mapper.LockerMapper">
 
-    <insert id="create" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerCreateReq">
-        EXECUTE SP_LOCKER_INSERT
-            #{TRADE_ID}
-            , #{AUTH_CODE}
-            , #{LOCKER_ID}
-            , #{RESULT_STATUS_CODE, mode=OUT, jdbcType=VARCHAR}
-    </insert>
-
     <update id="update" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerDto$LockerUpdateReq">
         EXECUTE SP_LOCKER_UPDATE
             #{TRADE_ID}

@@ -12,6 +12,7 @@ public class KioskSellerQueryDto {
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskLockerRes {
         private Long LOCKER_ID;
+        private String LOCKER_STATUS_CODE;
     }
 
     @JsonNaming(CustomUpperSnakeCaseStrategy.class)

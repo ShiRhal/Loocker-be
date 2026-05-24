@@ -13,12 +13,6 @@ public class LockerService {
 
     private final LockerMapper lockerMapper;
 
-
-    public String create (LockerDto.LockerCreateReq dto) {
-        lockerMapper.create(dto);
-        return dto.getRESULT_STATUS_CODE();
-    }
-
     public String update (LockerDto.LockerUpdateReq dto) {
         lockerMapper.update(dto);
         return dto.getRESULT_STATUS_CODE();

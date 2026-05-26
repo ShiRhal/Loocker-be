@@ -14,4 +14,6 @@ public interface LockerCmdMapper {
     public void update(LockerCmdDto.LockerCmdUpdateReq dto);
 
     public Collection<LockerCmdQueryDto.LockerCmdRes> findCmd(LockerCmdQueryDto.LockerCmdReq dto);
+
+    public Collection<LockerCmdQueryDto.LockerCmdStatusRes> findCmdStatus(LockerCmdQueryDto.LockerCmdStatusReq dto);
 }

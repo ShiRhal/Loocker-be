@@ -29,4 +29,10 @@ public class LockerCmdService {
 
         return lockerCmdMapper.findCmd(dto);
     }
+
+    // @Transactional(readOnly = true)
+    public Collection<LockerCmdQueryDto.LockerCmdStatusRes> findCmdStatus(LockerCmdQueryDto.LockerCmdStatusReq dto) {
+
+        return lockerCmdMapper.findCmdStatus(dto);
+    }
 }

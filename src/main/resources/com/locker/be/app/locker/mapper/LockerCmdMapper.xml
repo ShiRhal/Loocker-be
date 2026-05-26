@@ -8,6 +8,14 @@
             #{LOCKER_CODE}
     </select>
 
+    <select id="findCmdStatus" resultType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdStatusRes" parameterType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdStatusReq">
+        EXECUTE SP_LOCKER_COMMAND_STATUS_SELECT
+            #{AUTH_CODE}
+            , #{KIOSK_CODE}
+            , #{LOCKER_ID}
+            , #{COMMAND_TYPE_CODE}
+    </select>
+
     <insert id="create" parameterType="com.locker.be.app.locker.dto.LockerCmdDto$LockerCmdInsertReq">
         EXECUTE SP_LOCKER_COMMAND_INSERT
             #{AUTH_CODE}

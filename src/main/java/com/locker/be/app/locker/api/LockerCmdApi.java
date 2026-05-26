@@ -27,6 +27,12 @@ public class LockerCmdApi {
         return lockerCmdService.findCmd(dto);
     }
 
+    @GetMapping("/status/select")
+    @Operation(summary = "명령 조회.")
+    public Collection<LockerCmdQueryDto.LockerCmdStatusRes> findCmdStatus(LockerCmdQueryDto.LockerCmdStatusReq dto) {
+        return lockerCmdService.findCmdStatus(dto);
+    }
+
     @PutMapping("/create")
     @ResponseStatus(value = HttpStatus.OK)
     @Operation(summary = "데이터를 입력합니다.")

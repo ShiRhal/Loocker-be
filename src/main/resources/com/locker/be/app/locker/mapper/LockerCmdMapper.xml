@@ -3,7 +3,7 @@
 
 <mapper namespace="com.locker.be.app.locker.mapper.LockerCmdMapper">
 
-    <select id="findState" resultType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdRes" parameterType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdReq">
+    <select id="findCmd" resultType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdRes" parameterType="com.locker.be.app.locker.dto.LockerCmdQueryDto$LockerCmdReq">
         EXECUTE SP_LOCKER_COMMAND_SELECT
             #{LOCKER_CODE}
     </select>

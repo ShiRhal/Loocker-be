@@ -8,7 +8,7 @@
             #{LOCKER_CODE}
     </select>
 
-    <insert id="update" parameterType="com.locker.be.app.locker.dto.LockerCmdDto$LockerCmdInsertReq">
+    <insert id="create" parameterType="com.locker.be.app.locker.dto.LockerCmdDto$LockerCmdInsertReq">
         EXECUTE SP_LOCKER_COMMAND_INSERT
             #{AUTH_CODE}
             , #{KIOSK_CODE}

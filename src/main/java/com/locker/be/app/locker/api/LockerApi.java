@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("kiosk/locker")
-@Tag(name = "거래 API", description = "거래를 위한 API 입니다.")
+@Tag(name = "보관함 API", description = "보관함을 위한 API 입니다.")
 public class LockerApi {
 
     private final LockerService lockerService;

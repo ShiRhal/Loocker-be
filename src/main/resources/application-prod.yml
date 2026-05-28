@@ -31,6 +31,7 @@ jwt:
 file:
   upload:
     product-path: ${PRODUCT_UPLOAD_PATH:uploads/product}
+    locker-path: ${PRODUCT_UPLOAD_PATH:uploads/trade-locker}
 
 kiosk:
   allowed-code: ${VERIFY_CODE}

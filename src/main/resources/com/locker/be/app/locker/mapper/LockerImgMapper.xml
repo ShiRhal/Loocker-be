@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.app.locker.mapper.LockerImgMapper">
+
+    <select id="findImg" resultType="com.locker.be.app.locker.dto.LockerImgQueryDto$LockerImgRes" parameterType="com.locker.be.app.locker.dto.LockerImgQueryDto$LockerImgReq">
+        EXECUTE SP_LOCKER_IMAGE_SELECT
+            #{AUTH_CODE}
+            , #{KIOSK_CODE}
+            , #{TRADE_ID}
+            , #{LOCKER_ID}
+    </select>
+
+    <insert id="create" parameterType="com.locker.be.app.locker.dto.LockerImgDto$LockerImgCreateParam">
+        EXECUTE SP_LOCKER_IMAGE_INSERT
+            #{TRADE_ID}
+            , #{LOCKER_ID}
+            , #{IMAGE_TYPE_CODE}
+            , #{IMAGE_URL}
+    </insert>
+</mapper>

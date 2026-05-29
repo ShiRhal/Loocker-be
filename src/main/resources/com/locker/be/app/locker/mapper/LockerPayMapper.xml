@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.locker.be.app.locker.mapper.LockerPayMapper">
+
+    <update id="create" parameterType="com.locker.be.app.locker.dto.LockerPayDto$LockerPayCreateReq">
+        EXECUTE SP_LOCKER_PAYMENT_INSERT
+            #{AUTH_CODE}
+            , #{KIOSK_CODE}
+            , #{TRADE_ID}
+            , #{PRODUCT_ID}
+    </update>
+
+    <update id="paid" statementType="CALLABLE" parameterType="com.locker.be.app.locker.dto.LockerPayDto$LockerPayUpdateReq">
+        EXECUTE SP_LOCKER_PAYMENT_PAID_UPDATE
+            #{AUTH_CODE}
+            , #{KIOSK_CODE}
+            , #{TRADE_ID}
+            , #{AMOUNT}
+            , #{ORDER_ID}
+            , #{PAYMENT_KEY}
+            , #{SUCCESS, mode=OUT, jdbcType=BIGINT}
+    </update>
+</mapper>

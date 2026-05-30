@@ -17,7 +17,9 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of(
         "http://localhost:5173",
-        "http://127.0.0.1:5173"
+        "http://127.0.0.1:5173",
+        "https://loocker.site",
+        "https://www.loocker.site"
         ));
     
         config.setAllowedHeaders(List.of("*"));

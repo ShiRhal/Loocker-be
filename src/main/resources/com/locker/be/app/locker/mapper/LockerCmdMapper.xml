@@ -13,14 +13,14 @@
             #{AUTH_CODE}
             , #{KIOSK_CODE}
             , #{LOCKER_ID}
-            , #{COMMAND_TYPE_CODE}
+            , #{LOCKER_STATUS_NAME}
     </select>
 
     <insert id="create" parameterType="com.locker.be.app.locker.dto.LockerCmdDto$LockerCmdInsertReq">
         EXECUTE SP_LOCKER_COMMAND_INSERT
             #{AUTH_CODE}
             , #{KIOSK_CODE}
-            , #{COMMAND_TYPE_CODE}
+            , #{NEXT_STATUS}
             , #{REQUEST_TYPE_CODE}
     </insert>
 

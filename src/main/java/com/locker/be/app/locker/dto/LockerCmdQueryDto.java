@@ -53,19 +53,19 @@ public class LockerCmdQueryDto {
         private String AUTH_CODE;
         private String KIOSK_CODE;
         private Long LOCKER_ID;
-        private String COMMAND_TYPE_CODE;
+        private String LOCKER_STATUS_NAME;
 
         @Builder
         public LockerCmdStatusReq(
                 String AUTH_CODE,
                 String KIOSK_CODE,
                 Long LOCKER_ID,
-                String COMMAND_TYPE_CODE
+                String LOCKER_STATUS_NAME
                 ) {
             this.AUTH_CODE = AUTH_CODE;
             this.KIOSK_CODE = KIOSK_CODE;
             this.LOCKER_ID = LOCKER_ID;
-            this.COMMAND_TYPE_CODE = COMMAND_TYPE_CODE;
+            this.LOCKER_STATUS_NAME = LOCKER_STATUS_NAME;
         }
     }
 

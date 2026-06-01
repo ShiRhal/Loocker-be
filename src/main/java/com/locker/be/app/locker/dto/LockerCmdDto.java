@@ -13,19 +13,19 @@ public class LockerCmdDto {
     public static class LockerCmdInsertReq {
         private String AUTH_CODE;
         private String KIOSK_CODE;
-        private String COMMAND_TYPE_CODE;
+        private String NEXT_STATUS;
         private String REQUEST_TYPE_CODE;
 
         @Builder
         public LockerCmdInsertReq (
                 String AUTH_CODE,
                 String KIOSK_CODE,
-                String COMMAND_TYPE_CODE,
+                String NEXT_STATUS,
                 String REQUEST_TYPE_CODE
         ) {
             this.AUTH_CODE = AUTH_CODE;
             this.KIOSK_CODE = KIOSK_CODE;
-            this.COMMAND_TYPE_CODE = COMMAND_TYPE_CODE;
+            this.NEXT_STATUS = NEXT_STATUS;
             this.REQUEST_TYPE_CODE = REQUEST_TYPE_CODE;
         }
     }

@@ -34,7 +34,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // 프론트는 SockJS를 사용하므로 withSockJS()를 활성화한다.
         // CORS는 개발 환경 FE 주소만 허용한다.
         registry.addEndpoint("/ws/web/chat")
-                .setAllowedOriginPatterns("http://localhost:5173", "http://127.0.0.1:5173")
+                .setAllowedOriginPatterns("http://localhost:5173", "http://127.0.0.1:5173", "https://loocker.site")
                 .withSockJS();
     }
 

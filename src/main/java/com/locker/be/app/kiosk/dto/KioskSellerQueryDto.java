@@ -42,6 +42,7 @@ public class KioskSellerQueryDto {
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class KioskProductRes {
         private Long PRODUCT_ID;
+        private Long TRADE_ID;
         private String TITLE;
         private Long BASE_PRICE;
         private String PRODUCT_STATUS_CODE;

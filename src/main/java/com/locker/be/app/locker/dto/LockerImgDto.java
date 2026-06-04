@@ -12,20 +12,17 @@ public class LockerImgDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class LockerImgCreateReq {
-        private Long TRADE_ID;
-        private Long LOCKER_ID;
+        private String LOCKER_CODE;
         private String IMAGE_TYPE_CODE;
         private MultipartFile IMAGE_FILE;
 
         @Builder
         public LockerImgCreateReq(
-                Long TRADE_ID,
-                Long LOCKER_ID,
+                String LOCKER_CODE,
                 String IMAGE_TYPE_CODE,
                 MultipartFile IMAGE_FILE
         ) {
-            this.TRADE_ID = TRADE_ID;
-            this.LOCKER_ID = LOCKER_ID;
+            this.LOCKER_CODE = LOCKER_CODE;
             this.IMAGE_TYPE_CODE = IMAGE_TYPE_CODE;
             this.IMAGE_FILE = IMAGE_FILE;
         }
@@ -36,20 +33,17 @@ public class LockerImgDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PUBLIC)
     public static class LockerImgCreateParam {
-        private Long TRADE_ID;
-        private Long LOCKER_ID;
+        private String LOCKER_CODE;
         private String IMAGE_TYPE_CODE;
         private String IMAGE_URL;
 
         @Builder
         public LockerImgCreateParam(
-                Long TRADE_ID,
-                Long LOCKER_ID,
+                String LOCKER_CODE,
                 String IMAGE_TYPE_CODE,
                 String IMAGE_URL
         ) {
-            this.TRADE_ID = TRADE_ID;
-            this.LOCKER_ID = LOCKER_ID;
+            this.LOCKER_CODE = LOCKER_CODE;
             this.IMAGE_TYPE_CODE = IMAGE_TYPE_CODE;
             this.IMAGE_URL = IMAGE_URL;
         }

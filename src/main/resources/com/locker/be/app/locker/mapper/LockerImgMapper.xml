@@ -13,8 +13,7 @@
 
     <insert id="create" parameterType="com.locker.be.app.locker.dto.LockerImgDto$LockerImgCreateParam">
         EXECUTE SP_LOCKER_IMAGE_INSERT
-            #{TRADE_ID}
-            , #{LOCKER_ID}
+            #{LOCKER_CODE}
             , #{IMAGE_TYPE_CODE}
             , #{IMAGE_URL}
     </insert>

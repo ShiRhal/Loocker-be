@@ -29,22 +29,18 @@ public class LockerImgService {
         String savedFileName = UUID.randomUUID() + getExtension(imageFile.getOriginalFilename());
         Path uploadDir = Paths.get(
                 lockerUploadPath,
-                String.valueOf(dto.getTRADE_ID()),
-                String.valueOf(dto.getLOCKER_ID())
+                String.valueOf(dto.getLOCKER_CODE())
         );
         Path savedPath = uploadDir.resolve(savedFileName);
         String imageUrl = "/uploads/trade-locker/"
-                + dto.getTRADE_ID()
-                + "/"
-                + dto.getLOCKER_ID()
+                + dto.getLOCKER_CODE()
                 + "/"
                 + savedFileName;
         try {
             Files.createDirectories(uploadDir); // 1. 폴더 생성
             imageFile.transferTo(savedPath.toFile()); // 2. 실제 이미지 파일 저장
             LockerImgDto.LockerImgCreateParam param = new LockerImgDto.LockerImgCreateParam(); // 3. SP 호출용 파라미터 세팅
-            param.setTRADE_ID(dto.getTRADE_ID());
-            param.setLOCKER_ID(dto.getLOCKER_ID());
+            param.setLOCKER_CODE(dto.getLOCKER_CODE());
             param.setIMAGE_TYPE_CODE(dto.getIMAGE_TYPE_CODE());
             param.setIMAGE_URL(imageUrl);
             lockerImgMapper.create(param); // 4. DB 저장: SP_LOCKER_IMAGE_INSERT 호출

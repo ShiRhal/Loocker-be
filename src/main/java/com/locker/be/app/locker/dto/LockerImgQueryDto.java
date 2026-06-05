@@ -22,19 +22,19 @@ public class LockerImgQueryDto {
     @Getter
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class LockerImgReq {
-        private String LOCKER_CODE;
+        private String AUTH_CODE;
         private String KIOSK_CODE;
         private Long TRADE_ID;
         private Long LOCKER_ID;
 
         @Builder
         public LockerImgReq(
-                String LOCKER_CODE,
+                String AUTH_CODE,
                 String KIOSK_CODE,
                 Long TRADE_ID,
                 Long LOCKER_ID
         ) {
-            this.LOCKER_CODE = LOCKER_CODE;
+            this.AUTH_CODE = AUTH_CODE;
             this.KIOSK_CODE = KIOSK_CODE;
             this.TRADE_ID = TRADE_ID;
             this.LOCKER_ID = LOCKER_ID;

@@ -42,7 +42,7 @@ public class KioskBuyerQueryDto {
     public static class KioskProductRes {
         private Long PRODUCT_ID;
         private Long TRADE_ID;
-        private Long TRADE_STATUS_CODE;
+        private String TRADE_STATUS_CODE;
         private Long LOCKER_ID;
 
         private String TITLE;

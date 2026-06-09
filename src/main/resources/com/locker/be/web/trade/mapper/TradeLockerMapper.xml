@@ -37,4 +37,10 @@
             #{TRADE_ID}
             , #{USER_ID}
     </delete>
+
+    <select id="findImg" resultType="com.locker.be.web.trade.dto.TradeLockerQueryDto$TradeLockerImgRes" parameterType="com.locker.be.web.trade.dto.TradeLockerQueryDto$TradeLockerImgReq">
+        EXECUTE SP_TRADE_LOCKER_IMAGE_SELECT
+            #{TRADE_ID}
+            , #{USER_ID}
+    </select>
 </mapper>

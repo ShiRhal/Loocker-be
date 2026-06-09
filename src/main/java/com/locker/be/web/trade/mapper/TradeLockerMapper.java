@@ -20,4 +20,6 @@ public interface TradeLockerMapper {
     public Collection<TradeLockerQueryDto.TradeLockerLocationRes> findAll();
 
     public Collection<TradeLockerQueryDto.TradeLockerStateRes> findState(TradeLockerQueryDto.TradeLockerStateReq dto);
+
+    public Collection<TradeLockerQueryDto.TradeLockerImgRes> findImg(TradeLockerQueryDto.TradeLockerImgReq dto);
 }

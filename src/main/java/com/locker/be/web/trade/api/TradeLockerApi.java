@@ -2,6 +2,7 @@ package com.locker.be.web.trade.api;
 
 import com.locker.be.web.trade.dto.TradeLockerDto;
 import com.locker.be.web.trade.dto.TradeLockerQueryDto;
+import com.locker.be.web.trade.dto.TradeQueryDto;
 import com.locker.be.web.trade.service.TradeLockerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -63,4 +64,12 @@ public class TradeLockerApi {
         String token = authorization.replace("Bearer ", "");
         tradeLockerService.delete(dto, token);
     }
+
+    @GetMapping("/img/select")
+    @Operation(summary = "검색조건에 따른 상품 리스트에 대한 데이터를 반환합니다.")
+    public Collection<TradeLockerQueryDto.TradeLockerImgRes> findId(TradeLockerQueryDto.TradeLockerImgReq dto, @RequestHeader("Authorization") String authorization) {
+        String token = authorization.replace("Bearer ", "");
+        return tradeLockerService.findImg(dto, token);
+    }
+
 }

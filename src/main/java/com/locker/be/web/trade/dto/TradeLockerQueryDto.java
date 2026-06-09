@@ -63,4 +63,33 @@ public class TradeLockerQueryDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    public static class TradeLockerImgRes {
+        private Long TRADE_ID;
+        private Long LOCKER_ID;
+        private String SELLER_IMAGE_URL;
+        private String BUYER_IMAGE_URL;
+    }
+
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Getter
+    @Setter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class TradeLockerImgReq {
+        private Long TRADE_ID;
+        private Long USER_ID;
+
+        @Builder
+        public TradeLockerImgReq (
+                Long TRADE_ID,
+                Long USER_ID
+        ) {
+            this.TRADE_ID = TRADE_ID;
+            this.USER_ID = USER_ID;
+        }
+    }
+
 }

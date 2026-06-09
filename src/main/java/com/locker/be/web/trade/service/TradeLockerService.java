@@ -68,4 +68,14 @@ public class TradeLockerService {
 
         return tradeLockerMapper.findState(dto);
     }
+
+    // @Transactional(readOnly = true)
+    public Collection<TradeLockerQueryDto.TradeLockerImgRes> findImg(TradeLockerQueryDto.TradeLockerImgReq dto, String token) {
+        Long userID = jwtUtil.getUserId(token);
+        TradeLockerQueryDto.TradeLockerImgReq params = TradeLockerQueryDto.TradeLockerImgReq.builder()
+                .TRADE_ID(dto.getTRADE_ID())
+                .USER_ID(userID)
+                .build();
+        return tradeLockerMapper.findImg(params);
+    }
 }

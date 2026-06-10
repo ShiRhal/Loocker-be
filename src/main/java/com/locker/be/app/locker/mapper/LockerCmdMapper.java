@@ -16,4 +16,6 @@ public interface LockerCmdMapper {
     public Collection<LockerCmdQueryDto.LockerCmdRes> findCmd(LockerCmdQueryDto.LockerCmdReq dto);
 
     public Collection<LockerCmdQueryDto.LockerCmdStatusRes> findCmdStatus(LockerCmdQueryDto.LockerCmdStatusReq dto);
+
+    public void adminCreate(LockerCmdDto.LockerAdminCmdInsertReq dto);
 }

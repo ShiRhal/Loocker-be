@@ -35,4 +35,8 @@ public class LockerCmdService {
 
         return lockerCmdMapper.findCmdStatus(dto);
     }
+
+    public void adminCreate(LockerCmdDto.LockerAdminCmdInsertReq dto) {
+        lockerCmdMapper.adminCreate(dto);
+    }
 }

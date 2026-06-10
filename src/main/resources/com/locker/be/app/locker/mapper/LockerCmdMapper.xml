@@ -31,4 +31,10 @@
             , #{RESULT_MESSAGE}
     </update>
 
+    <insert id="adminCreate" parameterType="com.locker.be.app.locker.dto.LockerCmdDto$LockerAdminCmdInsertReq">
+        EXECUTE SP_LOCKER_ADMIN_COMMAND_INSERT
+            #{LOCKER_ID}
+            , #{COMMAND_TYPE_CODE}
+    </insert>
+
 </mapper>

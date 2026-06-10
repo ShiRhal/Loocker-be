@@ -47,4 +47,11 @@ public class LockerCmdApi {
         lockerCmdService.update(dto);
     }
 
+    @PutMapping("admin/create")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(summary = "데이터를 입력합니다.")
+    public void adminCreate(@RequestBody final LockerCmdDto.LockerAdminCmdInsertReq dto) {
+        lockerCmdService.adminCreate(dto);
+    }
+
 }

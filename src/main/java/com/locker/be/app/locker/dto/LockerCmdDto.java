@@ -51,4 +51,22 @@ public class LockerCmdDto {
         }
     }
 
+    @JsonNaming(CustomUpperSnakeCaseStrategy.class)
+    @Setter
+    @Getter
+    @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    public static class LockerAdminCmdInsertReq {
+        private Long LOCKER_ID;
+        private String COMMAND_TYPE_CODE;
+
+        @Builder
+        public LockerAdminCmdInsertReq (
+                Long LOCKER_ID,
+                String COMMAND_TYPE_CODE
+        ) {
+            this.LOCKER_ID = LOCKER_ID;
+            this.COMMAND_TYPE_CODE = COMMAND_TYPE_CODE;
+        }
+    }
+
 }

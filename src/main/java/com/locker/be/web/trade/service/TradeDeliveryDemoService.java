@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TradeDeliveryDemoService {
 
     private final TradeMapper tradeMapper;
-    private final ThreadPoolTaskScheduler tradeTaskScheduler;
+    private final ThreadPoolTaskScheduler webTaskScheduler;
 
     private final Set<Long> runningTradeIds = ConcurrentHashMap.newKeySet();
 
@@ -45,14 +45,14 @@ public class TradeDeliveryDemoService {
             log.info("택배 자동 시연 종료. tradeId={}", tradeId);
             return;
         }
-        tradeTaskScheduler.schedule(() -> {
+        webTaskScheduler.schedule(() -> {
             try {
                 String nextStatusCode = DELIVERY_DEMO_STEPS.get(stepIndex);
                 TradeDto.TradeUpdateReq params = TradeDto.TradeUpdateReq.builder()
                         .TRADE_ID(tradeId)
                         .USER_ID(null)
                         .NEXT_STATUS_CODE(nextStatusCode)
-                         .TRADE_TYPE_CODE("DELIVERY")
+                        .TRADE_TYPE_CODE("DELIVERY")
                         .build();
                 tradeMapper.update(params);
                 log.info(

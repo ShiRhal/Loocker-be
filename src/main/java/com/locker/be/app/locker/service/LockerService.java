@@ -2,8 +2,8 @@ package com.locker.be.app.locker.service;
 
 import com.locker.be.app.locker.dto.LockerDto;
 import com.locker.be.app.locker.mapper.LockerMapper;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,13 +15,20 @@ import java.time.Instant;
 @Slf4j
 @Service
 @Transactional
-@RequiredArgsConstructor
 public class LockerService {
 
     private final LockerMapper lockerMapper;
     private final TaskScheduler taskScheduler;
 
-    public String update (LockerDto.LockerUpdateReq dto) {
+    public LockerService(
+            LockerMapper lockerMapper,
+            @Qualifier("appTaskScheduler") TaskScheduler taskScheduler
+    ) {
+        this.lockerMapper = lockerMapper;
+        this.taskScheduler = taskScheduler;
+    }
+
+    public String update(LockerDto.LockerUpdateReq dto) {
         lockerMapper.update(dto);
 
         String resultStatusCode = dto.getRESULT_STATUS_CODE();
